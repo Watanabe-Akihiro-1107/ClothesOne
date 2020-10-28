@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
 
+
+  namespace :user do
+    get 'item_comments/create'
+    get 'item_comments/destroy'
+  end
     devise_for :users, controllers: {
     registrations: 'users/registrations',
     sessions: "users/sessions",
@@ -11,7 +16,9 @@ Rails.application.routes.draw do
  
 
   scope module: :user do
-    resources :items,only:[:index,:create,:destroy,:edit,:update, :new ,:show]
+    resources :items,only:[:index,:create,:destroy,:edit,:update, :new ,:show] do
+      resources :item_comments, only: [:create, :destroy]
+  end
   end
 
   scope module: :user do
@@ -23,9 +30,11 @@ Rails.application.routes.draw do
   end
 
   scope module: :user do
-    resources :users,only:[:show,:edit,:update]
-    get 'delete_page' => "users#delete_page"
-    patch 'withdraw' => "users#withdraw"
+    resources :users,only:[:show,:edit,:update] do
+    resource :relationships, only: [:create, :destroy]
+    get 'follows' => 'relationships#follower', as: 'follows'
+    get 'followers' => 'relationships#followed', as: 'followers'
+  end
   end
 
 
@@ -37,6 +46,9 @@ Rails.application.routes.draw do
     resources :brands, only:[:index,:update, :create,:edit]
   end
 
-
+  scope module: :user do
+    get 'delete_page' => "users#delete_page"
+    patch 'withdraw' => "users#withdraw"
+  end
 end
 

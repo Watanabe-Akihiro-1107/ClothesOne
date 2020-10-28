@@ -1,6 +1,8 @@
+<%= render "user/items/sidebar" %>
+<body>
 <div class="item_index">
 	<% @items.each do |item|%>
-		<%= link_to item_path(item.id),class: "item_index_image" do %><%= attachment_image_tag(item, :image, :fill, 240, 400) %><% end %>
+		<%= link_to item_path(item.id),class: "item_index_image" do %><%= attachment_image_tag(item, :image, :fill, 260, 400) %><% end %>
 		<% end %>
 </div>
-
+</body>>

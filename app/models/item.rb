@@ -6,4 +6,5 @@ class Item < ApplicationRecord
 	validates :introduction, {length: {maximum: 200}}#紹介文のカラムに200文字以内の文字制限を設けています。
 	attachment :image
 	acts_as_taggable
+	has_many :item_comments,dependent: :destroy
 end

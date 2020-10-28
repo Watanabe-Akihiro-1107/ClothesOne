@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+      <meta charset="UTF-8">
       <title>Clothesone</title>
       <%= csrf_meta_tags %>
-      %= csp_meta_tag %>
+      <%= csp_meta_tag %>
 
       <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
       <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
@@ -17,9 +19,10 @@
               <span>ClothesOne</span>
         </nav>
         <ul class="nav navbar-nav navbar-right">
+              <li><%= link_to user_path(current_user.id), class:"btn-detail" do %><%= image_tag("mypage.png")%>MY PAGE<% end %></li>
               <li><%= link_to new_item_path, class:"btn-detail" do %><%= image_tag("new.png")%>POST<% end %></li>
               <li><%= link_to items_path, class:"btn-detail" do %><%= image_tag("jacket.png")%>ITEM<% end %></li>
-              <li><%= link_to "ALL ITEM" %></li>
+              <li><%= link_to brands_path, class:"btn-detail" do %>BRAND<% end %></li>
               <li><%= link_to destroy_user_session_path, method: :delete, class:"btn-detail" do %><%= image_tag("exit.png")%>LOGOUT<% end %></li>
             </ul>
 

@@ -9,21 +9,21 @@
 }
 
 .item_index{
+	width:100%;
 	margin-top:80px;
-	margin-left:200px;
+	margin-left:170px ;
+	z-index:100;
+	position:fixed;
+	display:inline-block;
 }
 
-.item_all{
-	margin-top:30px;
-}
+
 
 ////*showページ*////
 
 .item_detail{
 	float:left;
 	text-align:center;
-
-
 }
 
 .item_image{
@@ -33,15 +33,27 @@
 .item_box{
 	margin-top:100px;
 	margin-left:400px;
+	width:100%;
 }
 
 .btn_detail{
 	color:black;
 }
 
+.item_comment_field{
+	width:500px;
+	height:150px;
+	margin-top:30px;
+	margin-left:510px;
+	text-align:center;
+
+}
+
+
 ////*topページ*////
 .main{
 	padding:60px;
+	float:right;
 }
 
 ////*差し込みフッター*////
@@ -51,4 +63,43 @@ footer{
 	width:100%;
 	position:fixed;
 	bottom:0;
+}
+
+
+////*サイドバー*////
+.sidebar{
+	padding:70px 0 70px 0 ;
+    margin-left: -250px;
+    height:550px;
+    width:300px;
+    background-color: #444;
+    text-align:center;
+    position:relative;
+    z-index:999;
+    float:left;
+}
+
+.sidebar:hover {
+	margin-left:-50px;
+	z-index:999;
+}
+
+ul > li{
+    list-style:none;
+    display:block;
+    text-align: center;
+}
+
+
+.sidebar > ul > li > a{
+	text-align: center;
+    display: block;
+    font-size: 15px;
+    text-transform: uppercase;
+    color: #000000;
+    padding:10px 0 ;
+}
+
+ul > li:hover > a{
+    background-color: #efefef;
 }

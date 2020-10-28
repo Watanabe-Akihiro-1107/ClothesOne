@@ -1,17 +1,38 @@
 
 
-
+<%= render "user/items/sidebar" %>
 <div class = "item_box">
-		<%= attachment_image_tag(@item, :image, :fill, 350, 600, class: "item_image") %></div>
+		<%= attachment_image_tag(@item, :image, :fill, 350, 500, class: "item_image") %></div>
 			<div class ="item_detail">
-			<table class ="table table-hover">
-			<tr><td>SHOP</td><td><%= @item.brand_name %></td></tr>
-			<tr><td>PRICE</td><td><%= @item.price %></td></tr>
-			<tr><td>INTRODUCTION</td><td><%= @item.introduction %></td></tr>
-			<tr><td>CATEGORY</td><td><%= @item.category.category_name %></td></tr>
-			<tr><td><%= link_to edit_item_path ,class: "btn_detail" do %><button type="button" class="btn btn-light">EDIT</button><% end %></td>
-			<td><%= link_to item_path, method: :delete ,class: "btn_detail" do %><button type="button" class="btn btn-danger">DELETE</button><% end %></td></tr>
-			</table>
+				<table class ="table table-hover">
+					<tr><td>USER</td><td><%= link_to user_path(@item.user.id) do %><%= @item.user.nickname %></td></tr><% end %>
+					<tr><td>SHOP</td><td><%= @item.brand_name %></td></tr>
+					<tr><td>PRICE</td><td><%= @item.price %></td></tr>
+					<tr><td>CATEGORY</td><td><%= @item.category.category_name %></td></tr>
+				</table>
+				<table class="table table-hover">
+					<tr><td>INTRODUCTION</td></tr>
+					<tr><td><%= @item.introduction %></td></tr>
+				</table>
+				<table class="table table-hover">
+					<tr><td align="center"><%= link_to edit_item_path ,class: "btn_detail" do %><button type="button" class="btn btn-light">EDIT</button><% end %></td></tr>
+					<tr><td align="center"><%= link_to item_path, method: :delete ,class: "btn_detail" do %><button type="button" class="btn btn-danger">DELETE</button><% end %></td></tr>
+				</table>
+				<div class="comment_form">
+					<%= form_for [@item, @item_comment] do |f| %>
+      				<%= f.text_area :comment, :size=>'52x5',placeholder: "コメントをここに入力してください"%><br>
+  					<%= f.submit "送信する"%>
+					<% end %>
+				</div>
 			</div>
+		
+		<div class="item_comment_field">
+			<h2>コメント一覧</h2>
+			<% @item.item_comments.each do |item_comment| %>
+            	<div class="item_comment_detail">投稿者<%= item_comment.user.nickname %>
+            	投稿日時<%= item_comment.created_at.strftime('%Y/%m/%d') %>
+         		<%= item_comment.comment %></div>
+  			<% end %>
+  		</div>
 </div>
 

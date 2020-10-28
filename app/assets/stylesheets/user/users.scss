@@ -1,3 +1,35 @@
 // Place all the styles related to the user/users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+///*show*///
+.user_show_head{
+	margin-top:60px;
+	width:15%;
+	height:1000px;
+	text-align:center;
+	border:solid 1px;
+	font-size:15px;
+	float:left;
+
+}
+
+.user_show_index{
+	width:80%;
+	margin-top:60px;
+	margin-left:30px;
+	display:inline-block;
+	float:left;
+}
+
+.unfollow_btn{
+	color:red
+}
+
+.user_show_btn{
+	display:block;
+}
+
+.user_show_all{
+	width:100%;
+}
