@@ -1,15 +1,34 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Clothesone</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+      <title>Clothesone</title>
+      <%= csrf_meta_tags %>
+      %= csp_meta_tag %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+      <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+      <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
+    <header>
+      <div class="container">
+
+        <nav class="nav navbar-nav navbar-left">
+              <span>ClothesOne</span>
+        </nav>
+        <ul class="nav navbar-nav navbar-right">
+              <li><%= link_to new_item_path, class:"btn-detail" do %><%= image_tag("new.png")%>POST<% end %></li>
+              <li><%= link_to items_path, class:"btn-detail" do %><%= image_tag("jacket.png")%>ITEM<% end %></li>
+              <li><%= link_to "ALL ITEM" %></li>
+              <li><%= link_to destroy_user_session_path, method: :delete, class:"btn-detail" do %><%= image_tag("exit.png")%>LOGOUT<% end %></li>
+            </ul>
+
+      </div>
+    </header>
+
     <%= yield %>
   </body>
 </html>
+
+
+

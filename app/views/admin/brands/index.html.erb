@@ -1,0 +1,25 @@
+
+
+<div class="container">
+	<div class ="row">
+		<%= form_with model: @brand, url: admin_brands_path do |f| %>
+		<%= f.label :brand_name %>
+		<%= f.text_field :brand_name%>
+		<%= f.submit %>
+		<% end %>
+			<table class="table table-dark table-hover">
+				<% @brands.each do |brand| %>
+				<tr><td>ブランド名</td><td>有効ステータス</td><td>有効フラグ</td></tr>
+				<tr>
+				<td><%= brand.brand_name %></td>
+				<td><% if brand.brand_status == true %>
+              		<p>有効</p>
+            		<% else %>
+              		<p>無効</p>
+            		<% end %></td>
+				<td><%= link_to "EDIT", edit_admin_brand_path(brand.id) %></td>
+				</tr>
+				<% end %>
+			</table>
+	</div>
+</div>>

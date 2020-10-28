@@ -1,0 +1,54 @@
+// Place all the styles related to the user/items controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+////*indexページ*////
+.item_index_image{
+	margin-right:15px;
+	margin-top:15px;
+}
+
+.item_index{
+	margin-top:80px;
+	margin-left:200px;
+}
+
+.item_all{
+	margin-top:30px;
+}
+
+////*showページ*////
+
+.item_detail{
+	float:left;
+	text-align:center;
+
+
+}
+
+.item_image{
+	float:left;
+}
+
+.item_box{
+	margin-top:100px;
+	margin-left:400px;
+}
+
+.btn_detail{
+	color:black;
+}
+
+////*topページ*////
+.main{
+	padding:60px;
+}
+
+////*差し込みフッター*////
+footer{
+	background-color:#4169e1;
+	height:80px;
+	width:100%;
+	position:fixed;
+	bottom:0;
+}

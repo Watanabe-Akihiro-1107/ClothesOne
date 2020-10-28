@@ -1,0 +1,13 @@
+<h3>カテゴリー編集</h3><br>
+<div class="row">
+  	<div class="col-md-6">
+		<%= form_for(@category , url: admin_category_path) do |f| %>
+			<%= f.label :カテゴリー名 %>
+			<%= f.text_field :category_name %>
+		  	<label><%= f.label :カテゴリー編集%></label>
+		    <%= f.radio_button :category_status, :true,　checked: true %><label> 有効　</label>
+		    <%= f.radio_button :category_status, :false %><label> 無効　</label>
+		    <%= f.submit "変更を保存する", class: "btn botan"%>
+		<% end %>
+	</div>
+</div>

@@ -1,0 +1,11 @@
+<h3>ブランド有効フラグ編集</h3><br>
+<div class="row">
+  	<div class="col-md-6">
+		<%= form_for(@brand, url: admin_brand_path) do |f| %>
+		  	<label><%= f.label :ブランド%></label>
+		    <%= f.radio_button :brand_status, :true,　checked: true %><label> 有効　</label>
+		    <%= f.radio_button :brand_status, :false %><label> 無効　</label>
+		    <%= f.submit "変更を保存する", class: "btn botan"%>
+		<% end %>
+	</div>
+</div>
