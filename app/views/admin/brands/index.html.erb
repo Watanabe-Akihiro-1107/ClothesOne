@@ -1,7 +1,6 @@
 
 
-<div class="container">
-	<div class ="row">
+<div class="admin_brand_index">
 		<%= form_with model: @brand, url: admin_brands_path do |f| %>
 		<%= f.label :brand_name %>
 		<%= f.text_field :brand_name%>
@@ -18,8 +17,8 @@
               		<p>無効</p>
             		<% end %></td>
 				<td><%= link_to "EDIT", edit_admin_brand_path(brand.id) %></td>
+				<td><%= link_to "DELETE", admin_brand_path(brand.id), method: :delete %>
 				</tr>
 				<% end %>
 			</table>
-	</div>
-</div>>
+</div>

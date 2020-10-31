@@ -6,15 +6,23 @@
 .item_index_image{
 	margin-right:15px;
 	margin-top:15px;
+	float:left;
 }
 
+.item_index_main{
+	width:100%;
+
+}
 .item_index{
 	width:100%;
 	margin-top:80px;
 	margin-left:170px ;
 	z-index:100;
-	position:fixed;
-	display:inline-block;
+	
+}
+
+.item_index h4{
+	display:block;
 }
 
 
@@ -42,12 +50,12 @@
 
 .item_comment_field{
 	width:500px;
-	height:150px;
-	margin-top:30px;
-	margin-left:510px;
+	margin:30px auto 0;
 	text-align:center;
 
 }
+
+
 
 
 ////*topページ*////
@@ -65,6 +73,23 @@ footer{
 	bottom:0;
 }
 
+////*newページ*////
+.new_item_form{
+	margin:60px auto 0 ;
+	width:400px;
+}
+
+.new_item_form dl dt{
+  width: 200px;
+  padding:10px 0;
+  float:left;
+  clear:both;
+
+}
+
+.new_item_form dl dd{
+  padding:10px 0;
+}
 
 ////*サイドバー*////
 .sidebar{

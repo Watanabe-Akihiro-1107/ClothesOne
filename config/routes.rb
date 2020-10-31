@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   scope module: :user do
     resources :items,only:[:index,:create,:destroy,:edit,:update, :new ,:show] do
       resources :item_comments, only: [:create, :destroy]
+      resource :favorites, only: [:create, :destroy]
   end
   end
 
@@ -43,7 +44,7 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
-    resources :brands, only:[:index,:update, :create,:edit]
+    resources :brands, only:[:index,:update, :create,:edit,:destroy]
   end
 
   scope module: :user do

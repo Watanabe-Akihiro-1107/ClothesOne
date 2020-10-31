@@ -1,8 +1,10 @@
+<div class="item_index_main">
 <%= render "user/items/sidebar" %>
-<body>
+
+
 <div class="item_index">
 	<% @items.each do |item|%>
-		<%= link_to item_path(item.id),class: "item_index_image" do %><%= attachment_image_tag(item, :image, :fill, 260, 400) %><% end %>
+		<%= link_to item_path(item.id),class: "item_index_image" do %><%= attachment_image_tag(item, :image, :fill, 300, 400) %><h5>コメント<%= item.item_comments.count %></h5><% end %>
 		<% end %>
 </div>
-</body>>
+</div>

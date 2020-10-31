@@ -1,22 +1,27 @@
-<%= form_with model: @item, local:true do |f| %>
-<%= f.label :item_name %>
-<%= f.text_field :item_name %><br>
-<%= f.label :price %>
-<%= f.text_field :price %><br>
-<%= f.label :introduction %>
-<%= f.text_area :introduction %><br>
-<%= f.attachment_field :image %>
+<div class= "new_item_form">
+	<%= form_with model: @item, local:true do |f| %>
 
-<%= f.radio_button :brand1, 0 ,checked: true %><strong>　ブランドを入力　</strong>
-<%= f.text_field :brand_name %><br>
+	<dl>
+		<dt><%= f.label :item_name %></dt>
+		<dd><%= f.text_field :item_name %></dd><br>
+		<dt><%= f.label :price %></dt>
+		<dd><%= f.text_field :price %></dd><br>
+		<dt><%= f.label :introduction %></dt>
+		<dd><%= f.text_area :introduction %></dd><br>
 
-<%= f.radio_button :brand1, 1 %><strong>　既存のブランドから選択</strong>
-<%= f.collection_select :brand_id, Brand.all, :id, :brand_name, include_blank: "選択して下さい" %><br>
+		<dt><%= f.radio_button :brand1, 0 ,checked: true %><strong>　ブランドを入力　</strong></dt>
+		<dd><%= f.text_field :brand_name %></dd><br>
 
-<strong>カテゴリーを選択</strong><br>
-<%= f.collection_select :category_id, Category.all, :id, :category_name, include_blank: "選択して下さい" %>
+		<dt><%= f.radio_button :brand1, 1 %><strong>　既存のブランドから選択</strong></dt>
+		<dd><%= f.collection_select :brand_id, Brand.all, :id, :brand_name, include_blank: "選択して下さい" %></dd><br>
 
-<%= f.submit %>
+		<dt><strong>カテゴリーを選択</strong></dt>
+		<dd><%= f.collection_select :category_id, Category.all, :id, :category_name, include_blank: "選択して下さい" %></dd>
+		<dt><%= f.attachment_field :image %></dt><dd></dd><br>
+	</dl>
+
+	<%= f.submit "アイテムを投稿" ,class: "btn btn-success"%>
 
 
-<% end %>
+	<% end %>
+</div>

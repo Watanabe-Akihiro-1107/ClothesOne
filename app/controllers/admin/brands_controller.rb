@@ -21,6 +21,12 @@ class Admin::BrandsController < ApplicationController
     redirect_to admin_brands_path
   end
 
+  def destroy
+    @brand=Brand.find(params[:id])
+    @brand.destroy
+    redirect_to admin_brands_path
+  end
+
   private
   def brand_params
     params.require(:brand).permit(:brand_name, :brand_status)

@@ -33,6 +33,9 @@ class User::ItemsController < ApplicationController
       brand = Brand.new
       brand.brand_name = @item.brand_name
       brand.save
+      
+    elsif params[:item][:brand1] == 1.to_s
+      @item.brand_name = params[:item][:brand_name]
     end
 
     if @item.save!
