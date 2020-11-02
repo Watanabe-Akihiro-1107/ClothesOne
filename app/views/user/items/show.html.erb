@@ -1,8 +1,24 @@
 
 
 <%= render "user/items/sidebar" %>
-<div class = "item_box">
-		<%= attachment_image_tag(@item, :image, :fill, 350, 500, class: "item_image") %></div>
+	<div class = "item_box">
+		<%= attachment_image_tag(@item, :image, :fill, 350, 500, class: "item_image") %>
+			<% if @item.favorited_by?(current_user) %>
+
+  			<%= link_to item_favorites_path(@item), method: :delete,class: "favorite_heart" do %>
+    		<%= image_tag("red_heart.png")%>
+    		<%= @item.favorites.count %> いいね
+  			<% end %>
+
+			<% else %>
+  			<%= link_to item_favorites_path(@item), method: :post,class: "favorite_heart" do %>
+    		<%= image_tag("black_heart.png")%>
+    		<%= @item.favorites.count %> いいね
+  			<% end %>
+			<% end %>
+	</div>
+
+	
 			<div class ="item_detail">
 				<table class ="table table-hover">
 					<tr><td>USER</td><td><%= link_to user_path(@item.user.id) do %><%= @item.user.nickname %></td></tr><% end %>

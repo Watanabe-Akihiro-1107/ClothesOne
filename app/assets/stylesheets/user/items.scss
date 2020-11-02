@@ -2,11 +2,22 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+
+
+body{
+	margin-top:60px;
+}
+
+
+
+
+
 ////*indexページ*////
 .item_index_image{
 	margin-right:15px;
 	margin-top:15px;
 	float:left;
+
 }
 
 .item_index_main{
@@ -18,14 +29,13 @@
 	margin-top:80px;
 	margin-left:170px ;
 	z-index:100;
-	
+
 }
 
-.item_index h4{
+.item_index h5{
 	display:block;
+	float:left;
 }
-
-
 
 ////*showページ*////
 
@@ -52,10 +62,11 @@
 	width:500px;
 	margin:30px auto 0;
 	text-align:center;
-
 }
 
-
+.favorite_heart{
+	color:black;
+}
 
 
 ////*topページ*////

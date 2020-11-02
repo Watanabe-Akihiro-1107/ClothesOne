@@ -2,6 +2,10 @@ Rails.application.routes.draw do
 
 
   namespace :user do
+    get 'favorites/create'
+    get 'favorites/destroy'
+  end
+  namespace :user do
     get 'item_comments/create'
     get 'item_comments/destroy'
   end
@@ -13,7 +17,10 @@ Rails.application.routes.draw do
 
     root to: "user/items#top"
 
- 
+  scope module: :user do
+    resources :notifications, only: :index
+    delete "notifications/destroy_all" => "notifications/destroy_all"
+  end
 
   scope module: :user do
     resources :items,only:[:index,:create,:destroy,:edit,:update, :new ,:show] do
@@ -35,8 +42,13 @@ Rails.application.routes.draw do
     resource :relationships, only: [:create, :destroy]
     get 'follows' => 'relationships#follower', as: 'follows'
     get 'followers' => 'relationships#followed', as: 'followers'
+    member do
+      resources :favorites, only:[:index]
+    end
   end
   end
+
+
 
 
   namespace :admin do

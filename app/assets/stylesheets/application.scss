@@ -40,7 +40,6 @@ header{
   	position:fixed;
   	top:0;
   	width:100%;
-  	box-sizing:border-box;
   	height:50px;
   	z-index:1000;
 }
@@ -48,4 +47,8 @@ header{
 .btn-detail{
 	color:black;
 	font-size:12px;
+}
+
+.fa-circle{
+	color:gold;
 }

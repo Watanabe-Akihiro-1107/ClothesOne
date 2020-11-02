@@ -61,6 +61,8 @@ class User::ItemsController < ApplicationController
     @item = Item.new
   end
 
+
+
   private
   def item_params
     params.require(:item).permit(:item_name, :price, :introduction, :user_id, :brand_id, :category_id, :image, :tag_list,:brand_name)
