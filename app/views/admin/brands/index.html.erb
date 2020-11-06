@@ -1,14 +1,12 @@
-
-
 <div class="admin_brand_index">
 		<%= form_with model: @brand, url: admin_brands_path do |f| %>
 		<%= f.label :brand_name %>
 		<%= f.text_field :brand_name%>
 		<%= f.submit %>
 		<% end %>
-			<table class="table table-dark table-hover">
+			<table class="table table-striped table-hover">
+				<tr><th>ブランド名</th><th>有効ステータス</th><th>有効フラグ</th><th></th></tr>
 				<% @brands.each do |brand| %>
-				<tr><td>ブランド名</td><td>有効ステータス</td><td>有効フラグ</td></tr>
 				<tr>
 				<td><%= brand.brand_name %></td>
 				<td><% if brand.brand_status == true %>

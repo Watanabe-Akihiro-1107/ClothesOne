@@ -1,8 +1,10 @@
 
 
 <%= render "user/items/sidebar" %>
+<div class="clearfix">
 	<div class = "item_box">
 		<%= attachment_image_tag(@item, :image, :fill, 350, 500, class: "item_image") %>
+			<% if user_signed_in? %>
 			<% if @item.favorited_by?(current_user) %>
 
   			<%= link_to item_favorites_path(@item), method: :delete,class: "favorite_heart" do %>
@@ -16,13 +18,15 @@
     		<%= @item.favorites.count %> いいね
   			<% end %>
 			<% end %>
+			<% end %>
 	</div>
 
-	
-			<div class ="item_detail">
+
+			<div class ="item_detail ">
 				<table class ="table table-hover">
 					<tr><td>USER</td><td><%= link_to user_path(@item.user.id) do %><%= @item.user.nickname %></td></tr><% end %>
 					<tr><td>SHOP</td><td><%= @item.brand_name %></td></tr>
+					<tr><td>ITEM-NAME</td><td><%= @item.item_name %></td></tr>
 					<tr><td>PRICE</td><td><%= @item.price %></td></tr>
 					<tr><td>CATEGORY</td><td><%= @item.category.category_name %></td></tr>
 				</table>
@@ -30,20 +34,29 @@
 					<tr><td>INTRODUCTION</td></tr>
 					<tr><td><%= @item.introduction %></td></tr>
 				</table>
+
+				<% if user_signed_in? %>
+				<% if current_user.id == @item.user_id %>
 				<table class="table table-hover">
 					<tr><td align="center"><%= link_to edit_item_path ,class: "btn_detail" do %><button type="button" class="btn btn-light">EDIT</button><% end %></td></tr>
 					<tr><td align="center"><%= link_to item_path, method: :delete ,class: "btn_detail" do %><button type="button" class="btn btn-danger">DELETE</button><% end %></td></tr>
 				</table>
+				<% end %>
+				<% end %>
+
+				<%if user_signed_in? %>
 				<div class="comment_form">
 					<%= form_for [@item, @item_comment] do |f| %>
       				<%= f.text_area :comment, :size=>'52x5',placeholder: "コメントをここに入力してください"%><br>
   					<%= f.submit "送信する"%>
 					<% end %>
 				</div>
+				<% end %>
+			</div>
 			</div>
 
-		<div class="item_comment_field">
-			<h2>コメント一覧</h2>
+			<div class="item_comment_field">
+				<h2>コメント一覧</h2>
 				<%if @item.item_comments.count > 0 %>
 				<% @item.item_comments.each do |item_comment| %>
 
@@ -53,16 +66,17 @@
             	</table>
 
             	<div class="item_comment_detail">
-            	<table class = "table table-hover">
-         			<tr><td><%= item_comment.comment %></td></tr>
-         		</table>
+            		<table class = "table table-hover">
+         				<tr><td><%= item_comment.comment %></td></tr>
+         			</table>
          		</div>
 
 
   				<% end %>
+
   				<% else %>
   				<h4>コメントはまだありません</h4>
   				<% end %>
-  		</div>
-</div>
+  			</div>
+	
 

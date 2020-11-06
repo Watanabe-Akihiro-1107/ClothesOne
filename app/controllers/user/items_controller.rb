@@ -5,8 +5,16 @@ class User::ItemsController < ApplicationController
 
   end
 
+  def edit
+    @item=Item.find(params[:id])
+    if current_user.id != @item.user_id
+    redirect_to root_path
+  end
+
+  end
+
   def index
-    @categories = Category.all
+    @categories = Category.where(id: 4..23)
     @items=Item.all
 
     # urlにcategory_id(params)がある場合
@@ -31,19 +39,29 @@ class User::ItemsController < ApplicationController
 
     if params[:item][:brand1] == 0.to_s
       brand = Brand.new
-      brand.brand_name = @item.brand_name
+      brand.brand_name = params[:item][:brand_name]
       brand.save
+      @item.brand_name =params[:item][:brand_name]
+
       
+
     elsif params[:item][:brand1] == 1.to_s
-      @item.brand_name = params[:item][:brand_name]
+      # セレクトボックスから選んだBrandの情報で「brand」を定義する
+      brand = Brand.find(params[:item][:brand_id])
+      @item.brand_name = brand.brand_name
+      @item.save!
+
     end
 
-    if @item.save!
+    if @item.save
+      flash[:notice] = "登録が完了しました。"
       redirect_to items_path
     else
+      flash.now[:danger] = "登録に失敗しました"
       redirect_to root_path
     end
   end
+
 
   def destroy
     @item = Item.find(params[:id])
@@ -59,6 +77,12 @@ class User::ItemsController < ApplicationController
 
   def new
     @item = Item.new
+  end
+
+  def search
+    #Viewのformで取得したパラメータをモデルに渡す
+    @items = Item.search(params[:search])
+    @user=User.find(current_user.id)
   end
 
 

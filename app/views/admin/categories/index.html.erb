@@ -8,8 +8,8 @@
 		<%= f.submit %>
 		<% end %>
 			<table class="table table-dark table-hover">
-				
-				<tr><td>カテゴリー名</td><td>ステータス</td><td>フラグ</td></tr>
+
+				<tr><th>カテゴリー名</th><th>ステータス</th><th>フラグ</th></tr>
 				<% @categories.each do |category| %>
 				<tr>
 				<td><%= category.category_name %></td>
@@ -19,6 +19,7 @@
               		<p>無効</p>
             		<% end %></td>
 				<td><%= link_to "EDIT", edit_admin_category_path(category.id) %></td>
+				<td><%= link_to "DELETE", admin_category_path(category.id),method: :delete %></td>
 				</tr>
 				<% end %>
 			</table>

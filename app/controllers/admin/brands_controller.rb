@@ -1,4 +1,5 @@
 class Admin::BrandsController < ApplicationController
+   before_action :authenticate_admin!
   def index
   	@brand = Brand.new
   	@brands = Brand.all

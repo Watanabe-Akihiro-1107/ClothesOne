@@ -18,14 +18,23 @@
 
 
 body {
-font-family: 'Avenir','Helvetica Neue','Helvetica','Arial','Hiragino Sans','ヒラギノ角ゴシック',YuGothic,'Yu Gothic','メイリオ', Meiryo,'ＭＳ Ｐゴシック','MS PGothic'
+font-family: 'Avenir','Helvetica Neue','Helvetica','Arial','Hiragino Sans','ヒラギノ角ゴシック',YuGothic,'Yu Gothic','メイリオ', Meiryo,'ＭＳ Ｐゴシック','MS PGothic';
+background-image : url(wall2.jpg);
+background-color:rgba(255,255,255,0.6);
+background-blend-mode:lighten;
+
 }
 
 /*---ヘッダー---*/
-.navbar-left{
+.clothesone{
 	float:left;
 	font-size:25px;
 	line-height:50px;
+	color:#ADD8E6;
+}
+
+.navbar-left{
+	width:55%;
 }
 
 .navbar-right{
@@ -36,7 +45,6 @@ font-family: 'Avenir','Helvetica Neue','Helvetica','Arial','Hiragino Sans','ヒ�
 }
 
 header{
-  	background-color: #4169e1;
   	position:fixed;
   	top:0;
   	width:100%;
@@ -52,3 +60,21 @@ header{
 .fa-circle{
 	color:gold;
 }
+
+
+.search_submit_tag{
+	width: 60px;
+	height: 30px;
+	line-height:30px;
+	display:inline-block;
+	vertical-align: middle;
+	margin:7px 0 0 0;
+}
+.search_form_tag{
+	width:180px;
+	height:30px;
+	display:inline-block;
+	vertical-align: middle;
+	margin:7px 0 0 10px;
+}
+

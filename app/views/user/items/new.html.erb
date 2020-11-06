@@ -1,3 +1,5 @@
+<div class="new_item_text"><h2>New Item</h2></div>
+
 <div class= "new_item_form">
 	<%= form_with model: @item, local:true do |f| %>
 
@@ -16,8 +18,9 @@
 		<dd><%= f.collection_select :brand_id, Brand.all, :id, :brand_name, include_blank: "選択して下さい" %></dd><br>
 
 		<dt><strong>カテゴリーを選択</strong></dt>
-		<dd><%= f.collection_select :category_id, Category.all, :id, :category_name, include_blank: "選択して下さい" %></dd>
-		<dt><%= f.attachment_field :image %></dt><dd></dd><br>
+
+		<dd><%= f.collection_select :category_id, Category.where(id: 4..23), :id, :category_name, include_blank: "選択して下さい" %></dd>
+		<dt><%= f.attachment_field :image,class:"field_btn" %></dt><dd></dd><br>
 	</dl>
 
 	<%= f.submit "アイテムを投稿" ,class: "btn btn-success"%>

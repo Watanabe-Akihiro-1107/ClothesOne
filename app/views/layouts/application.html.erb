@@ -10,6 +10,7 @@
       <script src="https://kit.fontawesome.com/07f593dbe7.js" crossorigin="anonymous"></script>
       <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
       <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+      <%#= javascript_include_tag "http://maps.googleapis.com/maps/api/js?sensor=true", 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
@@ -17,7 +18,12 @@
       <div class="container">
 
         <nav class="nav navbar-nav navbar-left">
-              <span>ClothesOne</span>
+              <span class="clothesone"><%= link_to root_path,class:"clothesone" do %><strong>ClothesOne</strong><% end %></span>
+              <span class="search_form"><%= form_tag(search_path,:method => 'get') do %>
+              <%= text_field_tag :search, "",placeholder:"詳細ワードを入力", class: "search_form_tag" %>
+              <%= submit_tag '検索', :name => nil,class: " search_submit_tag" %>
+              <% end %>
+              </span>
         </nav>
         <ul class="nav navbar-nav navbar-right">
           <% if user_signed_in? %>
@@ -31,18 +37,28 @@
 
               <% end %>
               <li><%= link_to destroy_user_session_path, method: :delete, class:"btn-detail" do %><%= image_tag("exit.png")%>LOGOUT<% end %></li>
+          <% elsif admin_signed_in? %>
+              <li><%= link_to "ユーザー一覧", admin_users_path, class:"btn-detail" %></li>
+              <li><%= link_to "ジャンル一覧", admin_categories_path, class:"btn-detail" %></li>
+              <li><%= link_to "ブランド一覧", admin_brands_path, class:"btn-detail" %></li>
+              <li><%= link_to "ログアウト", destroy_admin_session_path,method: :delete, class:"btn-detail" %></li>
+
           <% else %>
-              <li><%= link_to new_item_path, class:"btn-detail" do %><%= image_tag("new.png")%>POST<% end %></li>
+              <li><%= link_to new_user_session_path, class:"btn-detail" do %><%= image_tag("question.png")%>About<% end %></li>
               <li><%= link_to items_path, class:"btn-detail" do %><%= image_tag("jacket.png")%>ITEM<% end %></li>
-              <li><%= link_to brands_path, class:"btn-detail" do %>BRAND<% end %></li>
               <li><%= link_to new_user_session_path, class:"btn-detail" do %><%= image_tag("exit.png")%>LOGIN<% end %></li>
               <% end %>
+
             </ul>
 
-      </div>
+
+          </div>
+
     </header>
 
     <%= yield %>
+    <script src="sidebar.js"></script>
+
   </body>
 </html>
 

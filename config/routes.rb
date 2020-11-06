@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
+  namespace :admin do
+    resources :users, only:[:index,:update,:edit]
+  end
 
   namespace :user do
     get 'favorites/create'
@@ -23,6 +26,7 @@ Rails.application.routes.draw do
   end
 
   scope module: :user do
+    get "search" => "items#search"
     resources :items,only:[:index,:create,:destroy,:edit,:update, :new ,:show] do
       resources :item_comments, only: [:create, :destroy]
       resource :favorites, only: [:create, :destroy]
@@ -37,8 +41,10 @@ Rails.application.routes.draw do
     resources :brands,only:[:index, :create]
   end
 
+
+
   scope module: :user do
-    resources :users,only:[:show,:edit,:update] do
+    resources :users,only:[:show,:edit,:update,:edit] do
     resource :relationships, only: [:create, :destroy]
     get 'follows' => 'relationships#follower', as: 'follows'
     get 'followers' => 'relationships#followed', as: 'followers'
@@ -52,7 +58,7 @@ Rails.application.routes.draw do
 
 
   namespace :admin do
-    resources :categories, only:[:index,:update,:create,:edit]
+    resources :categories, only:[:index,:update,:create,:edit,:destroy]
   end
 
   namespace :admin do

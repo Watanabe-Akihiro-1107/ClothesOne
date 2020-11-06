@@ -1,6 +1,9 @@
 <div class = "item_index_main">
+	<%= render "user/users/user_sidebar" %>
+
 <div class ="item_index">
 
+	<%if @items.count > 0 %>
 	<% @items.each do |item| %>
 		<h5>
 			<%= link_to item_path(item.id),class: "item_index_image" do %>
@@ -23,7 +26,13 @@
 		<% end %>
 			コメント<%= item.item_comments.count %>
 		</h5>
+
+		<% end %>
+
+	<% else %>
+	<h1>まだいいねしたアイテムはありません</h1>
 	<% end %>
+	
 
 </div>
 </div>

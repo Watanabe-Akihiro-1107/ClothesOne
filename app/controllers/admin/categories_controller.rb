@@ -1,4 +1,5 @@
 class Admin::CategoriesController < ApplicationController
+   before_action :authenticate_admin!
   def index
   	@category = Category.new
   	@categories = Category.all
@@ -18,6 +19,12 @@ class Admin::CategoriesController < ApplicationController
 
   def edit
   	@category = Category.find(params[:id])
+  end
+
+  def destroy
+    @category=Category.find(params[:id])
+    @category.destroy
+    redirect_to admin_categories_path
   end
 
   private
