@@ -35,3 +35,4 @@ kids_boy =kids.children.create(:category_name=>"ボーイズ")
 kids_girl =kids.children.create(:category_name=>"ガールズ")
 kids_baby =kids.children.create(:category_name=>"ベビー")
 
+

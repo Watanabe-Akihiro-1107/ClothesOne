@@ -71,4 +71,5 @@ group :production do
 end
 gem 'ancestry'
 gem 'jquery-gmap3-rails'
+gem 'kaminari'
 

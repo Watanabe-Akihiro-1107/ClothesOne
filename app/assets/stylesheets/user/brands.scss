@@ -1,3 +1,24 @@
 // Place all the styles related to the user/brands controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.brand_index{
+	width:65%;
+	height:1080px;
+	margin: 60px auto 0 ;
+	
+}
+
+.brands_btn{
+	font-size:25px;
+	margin-right:5px;
+	background-color: #8be4f0;
+	background-image:
+	linear-gradient(-90deg, #80deea 50%, transparent 50%, transparent);
+	background-size: 14px 14px;
+	border-radius:10px;
+}
+
+.brand_index h1{
+	text-align:center;
+}

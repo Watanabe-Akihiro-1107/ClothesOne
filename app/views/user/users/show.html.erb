@@ -13,20 +13,9 @@
             <%= attachment_image_tag(item, :image, :fill, 340, 400)%><% end %>
             <br>
 
-            
-            <% if item.favorited_by?(current_user) %>
-                <%= link_to item_favorites_path(item), method: :delete do %>
-                <%= image_tag("red_heart.png")%>
-                <%= item.favorites.count %> いいね
-            <% end %>
-
-            <% else %>
-                <%= link_to item_favorites_path(item), method: :post do %>
-                <%= image_tag("black_heart.png")%>
-                <%= item.favorites.count %> いいね
-            <% end %>
-
-            <% end %>
+        <div id="favorites_buttons_<%= item.id %>">
+           <%= render partial: 'user/favorites/favorite', locals: { item: item} %>
+        </div>
             コメント<%= item.item_comments.count %>
             </h5>
 

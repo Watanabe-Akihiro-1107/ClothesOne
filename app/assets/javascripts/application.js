@@ -14,6 +14,7 @@
 //= require activestorage
 //= require turbolinks
 //= require jquery
+//= require jquery.jscroll.min.js
 //= require bootstrap-sprockets
 //= require gmap3
 //= require_tree .

@@ -4,21 +4,9 @@
 <div class="clearfix">
 	<div class = "item_box">
 		<%= attachment_image_tag(@item, :image, :fill, 350, 500, class: "item_image") %>
-			<% if user_signed_in? %>
-			<% if @item.favorited_by?(current_user) %>
-
-  			<%= link_to item_favorites_path(@item), method: :delete,class: "favorite_heart" do %>
-    		<%= image_tag("red_heart.png")%>
-    		<%= @item.favorites.count %> いいね
-  			<% end %>
-
-			<% else %>
-  			<%= link_to item_favorites_path(@item), method: :post,class: "favorite_heart" do %>
-    		<%= image_tag("black_heart.png")%>
-    		<%= @item.favorites.count %> いいね
-  			<% end %>
-			<% end %>
-			<% end %>
+		<div id="favorites_buttons_<%= @item.id %>">
+		   <%= render partial: 'user/favorites/favorite', locals: { item: @item} %>
+		</div>
 	</div>
 
 
@@ -46,7 +34,7 @@
 
 				<%if user_signed_in? %>
 				<div class="comment_form">
-					<%= form_for [@item, @item_comment] do |f| %>
+					<%= form_for [@item, @item_comment], remote: true do |f| %>
       				<%= f.text_area :comment, :size=>'52x5',placeholder: "コメントをここに入力してください"%><br>
   					<%= f.submit "送信する"%>
 					<% end %>
@@ -56,27 +44,9 @@
 			</div>
 
 			<div class="item_comment_field">
-				<h2>コメント一覧</h2>
-				<%if @item.item_comments.count > 0 %>
-				<% @item.item_comments.each do |item_comment| %>
-
-				<table class="table">
-            		<tr><td>投稿者<%= item_comment.user.nickname %></td>
-            		<td>投稿日<%= item_comment.created_at.strftime('%Y/%m/%d') %></td></tr>
-            	</table>
-
-            	<div class="item_comment_detail">
-            		<table class = "table table-hover">
-         				<tr><td><%= item_comment.comment %></td></tr>
-         			</table>
-         		</div>
-
-
-  				<% end %>
-
-  				<% else %>
-  				<h4>コメントはまだありません</h4>
-  				<% end %>
+				<div id="item_comments_buttons_<%= @item.id %>">
+				   <%= render partial: 'user/item_comments/item_comment'%>
+				</div>
   			</div>
-	
+			
 

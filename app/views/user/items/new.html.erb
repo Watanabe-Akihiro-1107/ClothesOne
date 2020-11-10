@@ -1,3 +1,7 @@
+<% if flash[:danger] %>
+<div class="flash_error"><%= flash[:danger] %></div>
+<% end %>
+
 <div class="new_item_text"><h2>New Item</h2></div>
 
 <div class= "new_item_form">
@@ -11,11 +15,9 @@
 		<dt><%= f.label :introduction %></dt>
 		<dd><%= f.text_area :introduction %></dd><br>
 
-		<dt><%= f.radio_button :brand1, 0 ,checked: true %><strong>　ブランドを入力　</strong></dt>
+		<dt><strong>　ブランドを入力　</strong></dt>
 		<dd><%= f.text_field :brand_name %></dd><br>
 
-		<dt><%= f.radio_button :brand1, 1 %><strong>　既存のブランドから選択</strong></dt>
-		<dd><%= f.collection_select :brand_id, Brand.all, :id, :brand_name, include_blank: "選択して下さい" %></dd><br>
 
 		<dt><strong>カテゴリーを選択</strong></dt>
 
@@ -27,4 +29,5 @@
 
 
 	<% end %>
+	<script src="flash_error.js"></script>
 </div>

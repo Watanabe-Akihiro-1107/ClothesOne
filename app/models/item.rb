@@ -4,6 +4,7 @@ class Item < ApplicationRecord
 	belongs_to :brand, optional: true
 
 	validates :introduction, {length: {maximum: 200}}#紹介文のカラムに200文字以内の文字制限を設けています。
+  validates :brand_name, presence: true
 	attachment :image
 	has_many :item_comments,dependent: :destroy
 	has_many :favorites, dependent: :destroy
@@ -20,8 +21,13 @@ class Item < ApplicationRecord
           visited_id: user_id,
           action: "like"
         )
+        if notification.visitor_id == notification.visited_id
+          notification.checked = true
+        end
         notification.save if notification.valid?
         end
+
+
 
         def create_notification_comment!(current_user, item_comment_id)
         # 自分以外にコメントしている人をすべて取得し、全員に通知を送る
@@ -32,6 +38,8 @@ class Item < ApplicationRecord
         # まだ誰もコメントしていない場合は、投稿者に通知を送る
         save_notification_comment!(current_user, item_comment_id, user_id) if temp_ids.blank?
         end
+
+
 
          def save_notification_comment!(current_user, item_comment_id, visited_id)
         # コメントは複数回することが考えられるため、１つの投稿に複数回通知する
@@ -48,12 +56,14 @@ class Item < ApplicationRecord
         notification.save if notification.valid?
          end
 
+
+
         def self.search(search)
-        if search
-        Item.where(['item_name LIKE ?', "%#{search}%"])
-        else
-        Item.all
-        end
+          if search
+            Item.where(['item_name LIKE ?', "%#{search}%"])
+          else
+            Item.all
+          end
         end
 
 end

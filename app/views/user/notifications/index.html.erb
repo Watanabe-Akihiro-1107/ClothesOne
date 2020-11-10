@@ -1,14 +1,19 @@
 <div class="notification_index">
-
-		<div class="notification_detail">
+	<div class="notification_detail">
 		<h1>お知らせ</h1><hr>
+
+		<!-- 自分が自分に対して行ったものに対しては通知をしない -->
+		<% @notifications = @notifications.where.not(visitor_id: current_user.id) %>
+		<% if @notifications.exists? %>
 		<% @notifications.each do |notification|%>
-				<% if @notifications.count == 0 %>
-					<h2>お知らせはありません</h2>
-				<% end %>
+
+
+
 				<!-- 受け取ったactionカラムに応じて表示を分岐させる -->
 				<% if notification.action == "follow" %>
-					<%= link_to user_path(notification.visitor) do %><%= notification.visitor.nickname %><% end %>が
+					<%= link_to user_path(notification.visitor) do %>
+					<%= attachment_image_tag @user, :profile_image, format: 'jpg', size: "200x200" , class: "img-circle", fallback: "no_image.jpg"%>
+					<%= notification.visitor.nickname %><% end %>さんが
 					あなたをフォローしました<%= " (#{time_ago_in_words(notification.created_at)} 前)" %><hr>
 				<% elsif notification.action == "like" %>
 					<%= link_to user_path(notification.visitor) do %><%= notification.visitor.nickname %><% end %>さんが
@@ -23,9 +28,14 @@
 					<%= link_to item_path(notification.item) do %>あなたの投稿<% end %>にコメントしました。<%= " (#{time_ago_in_words(notification.created_at)} 前)" %>
 					<% end %><hr>
 				<% end %>
+
+		<% end %><!-- ここで繰り返しが終わっている -->
+
+		<% else %><!-- 存在していなければ -->
+		<h2>お知らせはありません</h2>
 		<% end %>
+
 		<%= link_to "通知ボックスを空にする", notifications_destroy_all_path, method: :delete ,class: "btn btn-danger"%>
-		</div>
-
-
+		<div class="paginate_notification"><%= paginate @notifications %></div>
+	</div>
 </div>

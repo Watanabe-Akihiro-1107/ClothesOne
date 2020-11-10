@@ -15,18 +15,17 @@ class User::ItemsController < ApplicationController
 
   def index
     @categories = Category.where(id: 4..23)
-    @items=Item.all
-
     # urlにcategory_id(params)がある場合
     if params[:category_id]
-      # Categoryのデータベースのテーブルから一致するidを取得
       @category = Category.find(params[:category_id])
-      # category_idと紐づく投稿を取得
-      @items = @category.items.order(created_at: :desc).all
+      @items = Item.where(category_id: @category.id).order(created_at: :desc)
+    elsif params[:brand_name]
+      @brand = Brand.find_by(brand_name: params[:brand_name])
+      @items = Item.where(brand_name: @brand.brand_name).order(created_at: :desc)
     else
       # 投稿すべてを取得
-      @items = Item.order(created_at: :desc).all
-      end
+      @items = Item.all.order(created_at: :desc)
+    end
   end
 
   def update
@@ -36,29 +35,24 @@ class User::ItemsController < ApplicationController
 
     @item = Item.new(item_params)
     @item.user_id = current_user.id
-
-    if params[:item][:brand1] == 0.to_s
+    
+    if @item.save
       brand = Brand.new
       brand.brand_name = params[:item][:brand_name]
       brand.save
       @item.brand_name =params[:item][:brand_name]
-
-      
-
-    elsif params[:item][:brand1] == 1.to_s
-      # セレクトボックスから選んだBrandの情報で「brand」を定義する
-      brand = Brand.find(params[:item][:brand_id])
-      @item.brand_name = brand.brand_name
-      @item.save!
-
+      @item.brand_id = brand.id
     end
+
+
+
 
     if @item.save
       flash[:notice] = "登録が完了しました。"
       redirect_to items_path
     else
-      flash.now[:danger] = "登録に失敗しました"
-      redirect_to root_path
+      flash[:danger] = "登録に失敗しました"
+      redirect_to new_item_path
     end
   end
 

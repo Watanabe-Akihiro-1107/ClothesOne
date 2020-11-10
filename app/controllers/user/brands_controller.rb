@@ -1,7 +1,8 @@
 class User::BrandsController < ApplicationController
   def index
-  	@brand = Brand.new
-  	@brands = Brand.all
+  	@brands = Brand.select(:brand_name).distinct.order(brand_name: :asc)
+
+
   end
 
   def create
@@ -15,3 +16,5 @@ class User::BrandsController < ApplicationController
     params.require(:brand).permit(:brand_name, :brand_status)
   end
 end
+
+
