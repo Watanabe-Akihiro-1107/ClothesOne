@@ -36,6 +36,7 @@
               <li><%= link_to user_path(current_user.id), class:"btn-detail" do %><%= image_tag("mypage.png")%>MY PAGE<% end %></li>
               <li><%= link_to new_item_path, class:"btn-detail" do %><%= image_tag("new.png")%>POST<% end %></li>
               <li><%= link_to items_path, class:"btn-detail" do %><%= image_tag("jacket.png")%>ITEM<% end %></li>
+              <li><%= link_to "BRANDS", brands_path, class:"btn-detail"%></li>
               <% if unchecked_notifications.any? %>
               <li><%= link_to notifications_path, class:"btn-detail" do %><i class="fa fa-circle" style="color: gold;"></i>NOTICE<% end %></li>
               <% else %>
@@ -50,9 +51,10 @@
               <li><%= link_to "ログアウト", destroy_admin_session_path,method: :delete, class:"btn-detail" %></li>
 
           <% else %>
-              <li><%= link_to new_user_session_path, class:"btn-detail" do %><%= image_tag("question.png")%>About<% end %></li>
+              <li><%= link_to about_path, class:"btn-detail" do %><%= image_tag("question.png")%>ABOUT<% end %></li>
               <li><%= link_to items_path, class:"btn-detail" do %><%= image_tag("jacket.png")%>ITEM<% end %></li>
-              <li><%= link_to new_user_session_path, class:"btn-detail" do %><%= image_tag("exit.png")%>LOGIN<% end %></li>
+              <li><%= link_to new_user_session_path, class:"btn-detail" do %><%= image_tag("exit.png")%>SIGNIN<% end %></li>
+              <li><%= link_to new_user_registration_path, class:"btn-detail" do %><%= image_tag("signup.png")%>SIGNUP<% end %></li>
               <% end %>
 
             </ul>
@@ -64,7 +66,7 @@
 
     <%= yield %>
     <script src="sidebar.js"></script>
-
+    <footer><p>© 2020 ClothesOne</p></footer>
   </body>
 </html>
 

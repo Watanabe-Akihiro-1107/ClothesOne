@@ -2,28 +2,16 @@
 	<%= render "user/users/user_sidebar" %>
 
 <div class ="item_index">
-
+	<h1><%= @user.nickname %>さんがいいねしたアイテム</h1>
 	<%if @items.count > 0 %>
 	<% @items.each do |item| %>
 		<h5>
 			<%= link_to item_path(item.id),class: "item_index_image" do %>
-			<%= attachment_image_tag(item, :image, :fill, 300, 400)%><% end %>
+			<%= attachment_image_tag(item, :image, :fill, 340, 400)%><% end %>
 			<br>
-
-
-		<% if item.favorited_by?(current_user) %>
-  			<%= link_to item_favorites_path(item), method: :delete do %>
-    		<%= image_tag("red_heart.png")%>
-    		<%= item.favorites.count %> いいね
-  		<% end %>
-
-		<% else %>
-  			<%= link_to item_favorites_path(item), method: :post do %>
-    		<%= image_tag("black_heart.png")%>
-    		<%= item.favorites.count %> いいね
-  		<% end %>
-
-		<% end %>
+				<div id="favorites_buttons_<%= item.id %>">
+				   <%= render partial: 'user/favorites/favorite', locals: { item: item} %>
+				</div>
 			コメント<%= item.item_comments.count %>
 		</h5>
 

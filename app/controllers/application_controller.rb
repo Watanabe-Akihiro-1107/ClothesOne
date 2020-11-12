@@ -12,7 +12,7 @@ protected
 	  		when Admin
 	    		root_path
 	  		when User
-	     		root_path
+	     		items_path
 	  	end
 	end
 

@@ -5,6 +5,11 @@ class User::BrandsController < ApplicationController
 
   end
 
+  def show
+    brand = Brand.find(params[:id])
+    @brand = brand.brand_name
+  end
+
   def create
     @item =Item.new
     @item.save

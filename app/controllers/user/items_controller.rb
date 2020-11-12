@@ -64,7 +64,7 @@ class User::ItemsController < ApplicationController
   end
 
   def show
-    @categories = Category.all
+    @categories = Category.where(id: 4..23)
     @item = Item.find(params[:id])
     @item_comment=ItemComment.new
   end

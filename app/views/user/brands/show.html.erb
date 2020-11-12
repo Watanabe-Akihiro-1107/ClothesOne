@@ -1,0 +1,69 @@
+<div class ="brand_index_main">
+  <h1>近くの<%= @brand %>一覧</h1>
+  <%= hidden_field_tag :brand_name, @brand, id: "brand-name" %>
+
+
+<script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['API_KEY']%>&callback=initMap&libraries=places" async></script>
+
+<script type="text/javascript">
+
+
+var map;
+var service;
+var infowindow;
+var latitude
+var longitude
+
+// 現在位置の取得
+navigator.geolocation.getCurrentPosition(
+    function(position){
+      // 経緯度の定義
+      latitude = position.coords.latitude
+      longitude = position.coords.longitude
+      console.log(latitude)
+      console.log(longitude)
+
+    }
+);
+
+function initMap() {
+  // 事前に定義しておいた経緯度を初期位置に代入
+  const tokyo = new google.maps.LatLng(latitude, longitude);
+  infowindow = new google.maps.InfoWindow();
+  map = new google.maps.Map(document.getElementById("gmap"), {
+    center: tokyo,
+    zoom: 14,
+  })
+  // 初期位置をdocumentで拾ってきて定義している
+  let brandName = document.getElementById('brand-name').value;
+  const request = {
+  	location: tokyo,
+  	radius: 10000,
+    query: brandName,
+  };
+  service = new google.maps.places.PlacesService(map);
+  service.textSearch(request, (results, status) => {
+  	console.log(results)
+    if (status === google.maps.places.PlacesServiceStatus.OK) {
+      for (let i = 0; i < results.length; i++) {
+        createMarker(results[i]);
+      }
+      map.setCenter(results[0].geometry.location);
+    }
+  });
+}
+
+function createMarker(place) {
+  const marker = new google.maps.Marker({
+    map,
+    position: place.geometry.location,
+  });
+  google.maps.event.addListener(marker, "click", () => {
+    infowindow.setContent(place.name);
+    infowindow.open(map);
+  });
+}
+</script>
+<div id="gmap"></div>
+
+</div>

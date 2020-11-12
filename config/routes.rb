@@ -38,7 +38,7 @@ Rails.application.routes.draw do
   end
 
   scope module: :user do
-    resources :brands,only:[:index, :create]
+    resources :brands,only:[:index, :create, :show]
   end
 
 
@@ -66,6 +66,7 @@ Rails.application.routes.draw do
   end
 
   scope module: :user do
+    get 'about' => "users#about"
     get 'delete_page' => "users#delete_page"
     patch 'withdraw' => "users#withdraw"
   end
