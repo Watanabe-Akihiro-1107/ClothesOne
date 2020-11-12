@@ -19,8 +19,8 @@
 
 body {
 font-family:'Source Sans Pro' 'Avenir','Helvetica Neue','Helvetica','Arial','Hiragino Sans','ヒラギノ角ゴシック',YuGothic,'Yu Gothic','メイリオ', Meiryo,'ＭＳ Ｐゴシック','MS PGothic';
-background-image : image-url(wall2.jpg);
-background-color:rgba(255,255,255,0.6);
+background-image: image-url("wall2.jpg");
+background-image:rgba(255,255,255,0.6);
 background-blend-mode:lighten;
 font-weight: 200;
 
@@ -48,7 +48,7 @@ font-weight: 200;
 }
 
 header{
-	background-image: image-url(wall2.jpg);
+	background-image: image-url("wall2.jpg");
 	background-color:rgba(255,255,255,0.6);
 	background-blend-mode:lighten;
   	position:fixed;
@@ -59,7 +59,7 @@ header{
 }
 
 footer{
-	background-image: image-url(wall2.jpg);
+	background-image: image-url("wall2.jpg");
 	background-color:rgba(255,255,255,0.6);
 	background-blend-mode:lighten;
 	height:60px;

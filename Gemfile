@@ -72,4 +72,8 @@ end
 gem 'ancestry'
 gem 'jquery-gmap3-rails'
 gem 'kaminari'
+gem 'capistrano'
+gem 'capistrano-rails'
+gem 'capistrano3-puma'
+gem 'capistrano-rbenv'
 
