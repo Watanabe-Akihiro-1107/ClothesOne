@@ -29,6 +29,9 @@ class User::ItemsController < ApplicationController
   end
 
   def update
+    @item =Item.find(params[:id])
+    @item.update(item_params)
+    redirect_to item_path(@item.id)
   end
 
   def create

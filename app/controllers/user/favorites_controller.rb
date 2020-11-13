@@ -1,7 +1,7 @@
 class User::FavoritesController < ApplicationController
   	def index
   		@user = User.find(params[:id])
-  		@items = @user.favorite_items
+  		@items = @user.favorite_items.order(created_at: :desc)
   	end
 
 

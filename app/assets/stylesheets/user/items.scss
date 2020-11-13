@@ -186,6 +186,42 @@
 	text-align:center;
 	line-height:40px;
 }
+
+///*Editページ*///
+.edit_item_form{
+	margin:0 auto;
+	width:400px;
+	background-color:#EEEEEE;
+	border-radius:0 0 10px 10px;
+}
+
+.edit_item_text{
+	height:50px;
+	margin:100px auto 0 ;
+	width:400px;
+	background-color:#66cdaa;
+	text-align:center;
+	border-radius: 10px 10px 0 0 ;
+}
+
+.edit_item_form{
+	text-align:center;
+}
+
+.edit_item_form dl dt{
+  width: 200px;
+  padding:10px 0;
+  float:left;
+  clear:both;
+}
+
+.edit_item_form dl dd{
+  padding:10px 0;
+}
+
+.edit_item_text h2{
+	line-height:50px;
+}
 ////*サイドバー*////
 .sidebar{
   z-index: 1000;
