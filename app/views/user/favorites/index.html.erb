@@ -2,8 +2,8 @@
 	<%= render "user/users/user_sidebar" %>
 
 <div class ="item_index">
+	<%if @items.exists? %>
 	<h1><%= @user.nickname %>さんがいいねしたアイテム</h1>
-	<%if @items.count > 0 %>
 	<% @items.each do |item| %>
 		<h5>
 			<%= link_to item_path(item.id),class: "item_index_image" do %>
