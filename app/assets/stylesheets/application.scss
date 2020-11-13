@@ -23,7 +23,6 @@ background-image : image-url("wall2.jpg");
 background-color:rgba(255,255,255,0.6);
 background-blend-mode:lighten;
 font-weight: 200;
-
 }
 
 
@@ -57,22 +56,6 @@ header{
   	height:50px;
   	z-index:1000;
 }
-
-footer{
-	background-image: image-url("wall2.jpg");
-	background-color:rgba(255,255,255,0.6);
-	background-blend-mode:lighten;
-	height:60px;
-	width:100%;
-	position:fixed;
-	bottom:0;
-	text-align:center;
-}
-
-footer p{
-	line-height:60px;
-}
-
 
 
 

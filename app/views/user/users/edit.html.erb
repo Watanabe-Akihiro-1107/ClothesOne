@@ -1,13 +1,12 @@
 <div class="user_edit">
 <div class="user_edit_main">
-	<%= form_for (@user) do |f|%>
-	<h2>NAME</h2>
-		<%= f.text_field :nickname ,class: "new_session_btn" %>
-
-
-		<%= f.attachment_field :profile_image,class: "user_edit_btn" %>
-		<%= f.submit "情報を更新する", class: "new_submit_btn" %><br>
-		<%= link_to "退会する", delete_page_path ,class: "delete_page_btn"%>
-	<% end %>
+	<div class="user_edit_title"><h2>User Edit</h2></div>
+		<%= form_for (@user) do |f|%>
+		<h3>NAME</h3>
+			<%= f.text_field :nickname ,class: "new_session_btn" %><br>
+			<%= f.attachment_field :profile_image,class: "user_edit_btn" %><br>
+			<%= f.submit "情報を更新する", class: "new_submit_btn" %><br>
+			<%= link_to "退会する", delete_page_path ,class: "delete_page_btn"%>
+		<% end %>
 </div>
 </div>

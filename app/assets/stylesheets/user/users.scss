@@ -35,17 +35,13 @@
 }
 
 .favorite_item_btn{
-  color:#FFFFFF;
+  color:#000000;
   background-color:#fff100;
   border-bottom: 5px solid #ccc100;
 }
 
-.favorite_item_btn:hover {
-  margin-top: 3px;
-  color:#000;
-  background: #fff20a;
-  border-bottom: 2px solid #ccc100;
-}
+
+
 
 .user_sidebar{
   z-index: 1000;
@@ -80,22 +76,36 @@
 
 ///*editページ*///
 
-.user_edit{
-  height:700px;
-}
 .user_edit_main{
-  margin-top:60px;
+  margin:60px auto 0;
   text-align:center;
-  padding-top:150px;
+  height:330px;
+  width:300px;
+  border-radius:0 0 10px 10px;
+  background-color:#EEEEEE;
 }
 
+.user_edit_title{
+  height:50px;
+  width:300px;
+  background-color:#66cdaa;
+  border-radius:10px 10px 0 0 ;
+  }
+
+.user_edit_title h2{
+  line-height:50px;
+}
 .user_edit_btn{
-  margin:0 auto;
+  margin:10px auto 0;
+  text-align:center;
 }
 
 .delete_page_btn{
   color:red;
+}
 
+.new_session_btn{
+  text-align:center;
 }
 
 ///*Aboutページ*///
