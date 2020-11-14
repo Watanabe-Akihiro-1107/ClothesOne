@@ -39,29 +39,20 @@
   			</div>
 	  	</div>
 
-					<div class="item_comment_field_detail">
+				<div class="item_comment_field_detail">
 
-					<div id="item_comments_buttons_<%= @item.id %>">
-						   <%= render partial: 'user/item_comments/item_comment'%>
-						</div>
-						<%if user_signed_in? %>
-						<div class="comment_form">
-							<%= form_for [@item, @item_comment], remote: true do |f| %>
-		      				<%= f.text_area :comment, :size=>'52x5',placeholder: "コメントをここに入力してください"%><br>
-		  					<%= f.submit "送信する"%>
-							<% end %>
-						</div>
+				<div id="item_comments_buttons_<%= @item.id %>">
+					   <%= render partial: 'user/item_comments/item_comment'%>
+					</div>
+					<%if user_signed_in? %>
+					<div class="comment_form">
+						<%= form_for [@item, @item_comment], remote: true do |f| %>
+	      				<%= f.text_area :comment, :size=>'52x5',placeholder: "コメントをここに入力してください"%><br>
+	  					<%= f.submit "送信する"%>
 						<% end %>
 					</div>
-
-
-
-
-
-			
-
-
-
+					<% end %>
+				</div>
   	</div>
 </div>
 

@@ -10,7 +10,11 @@ class User::UsersController < ApplicationController
   def update
     @user=User.find(params[:id])
     @user.update(user_params)
+    if admin_signed_in?
+      redirect_to root_path
+    elsif user_signed_in?
     redirect_to user_path(@user.id)
+  end
   end
 
   def show
