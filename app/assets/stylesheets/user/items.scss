@@ -260,11 +260,19 @@
 
 
 ////*サイドバー*////
+
+.main_sidebar{
+	
+	width:300px;
+	position:fixed;
+	height:100%;
+	top:0;
+}
 .sidebar{
   z-index: 1000;
   cursor: pointer;
   position: fixed;
-  top: 0px;
+  top: 0;
   overflow-y: scroll;
   left: -220px;
   background-color: #ADD8E6;
@@ -273,9 +281,21 @@
   font-size: 16px;
   text-align:center;
   height:100%;
-  paddind-top:100px;
-}
+  float:left;
+  }
 
+
+
+.find_sidebar{
+	z-index:1000;
+	position:fixed;
+	top:0px;
+	width:50px;
+	background-color:#000000;
+	height:100%;
+	padding-top:100px;
+	float:left;
+}
 
 
 ul > li{
