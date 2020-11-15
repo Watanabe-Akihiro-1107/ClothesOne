@@ -38,7 +38,6 @@ class User::ItemsController < ApplicationController
 
     @item = Item.new(item_params)
     @item.user_id = current_user.id
-    
     if @item.save
       brand = Brand.new
       brand.brand_name = params[:item][:brand_name]
