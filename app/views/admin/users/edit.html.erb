@@ -1,14 +1,11 @@
 <div class="container">
-<div class="row">
-<div class="admin_user_index col-xs-9">
-	<%= form_for @user do |f| %>
-			<%= f.radio_button :user_status, :true,　checked: true %><label> 有効　</label>
-		    <%= f.radio_button :user_status, :false %><label> 無効　</label>
-		    <%= f.submit "ユーザーステータスを変更する" %>
-	<% end %>
-
-
-	
-</div>
-</div>
+	<div class="row">
+		<div class="admin_user_index col-xs-9">
+			<%= form_for @user do |f| %>
+				<%= f.radio_button :user_status, :true,　checked: true %><label> 有効　</label>
+			    <%= f.radio_button :user_status, :false %><label> 無効　</label>
+			    <%= f.submit "ユーザーステータスを変更する" %>
+			<% end %>
+		</div>
+	</div>
 </div>
