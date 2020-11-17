@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :users, only:[:index,:update,:edit]
+    get'top' => 'users#top'
   end
 
   namespace :user do

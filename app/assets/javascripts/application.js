@@ -18,3 +18,5 @@
 //= require bootstrap-sprockets
 //= require gmap3
 //= require_tree .
+//= require chartkick
+//= require Chart.bundle

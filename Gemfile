@@ -76,4 +76,6 @@ gem 'capistrano'
 gem 'capistrano-rails'
 gem 'capistrano3-puma'
 gem 'capistrano-rbenv'
+gem "chartkick"
+gem 'groupdate'
 

@@ -10,7 +10,7 @@ protected
 	def after_sign_in_path_for(resource)
 	  	case resource
 	  		when Admin
-	    		root_path
+	    		admin_top_path
 	  		when User
 	     		items_path
 	  	end
