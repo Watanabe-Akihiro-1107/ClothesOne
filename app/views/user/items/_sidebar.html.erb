@@ -1,11 +1,14 @@
 <div class="sidebar">
-<ul><h4>ジャンルから探す</h4>
-        <% @categories.each do |category| %>
-        <% if category.category_status == true %>
-        <li><%= link_to category.category_name, items_path(category_id: category.id) %></li>
-        <% end %>
-        <% end %>
-    </ul>
+	<div class="left_sidebar"></div>
+		<div class="main_sidebar">
+			<h4>ジャンルから探す</h4>
+			        <% @categories.each do |category| %>
+			        	<% if category.category_status == true %>
+			        	<%= link_to category.category_name, items_path(category_id: category.id) ,class: "category_detail"%>
+			        	<% end %>
+			        <% end %>
+		</div>
+	<div class="right_sidebar"><i class="fas fa-arrow-alt-circle-left"></i></div>
 </div>
 
 
