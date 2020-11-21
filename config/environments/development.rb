@@ -6,7 +6,7 @@ Rails.application.configure do
    port:                  587,
    domain:               'gmail.com',
    user_name:            'answer.is.near.2@gmail.com',
-   password:             'ENV["MAILER_PASSWORD"]',
+   password:             ENV["MAILER_PASSWORD"],
    authentication:       'plain',
    enable_starttls_auto:  true
   }
@@ -42,9 +42,9 @@ Rails.application.configure do
   config.active_storage.service = :local
 
   # Don't care if the mailer can't send.
-  config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.raise_delivery_errors = true
 
-  config.action_mailer.perform_caching = false
+  config.action_mailer.perform_caching = true
 
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
