@@ -1,0 +1,9 @@
+<div class="inquiry_new" style="margin-top:60px">
+
+<%= form_with model: @inquiry, local:true do |f| %>
+	<%= f.text_field :name %>
+	<%= f.text_area :message %>
+	<%= f.submit %>
+<% end %>
+
+</div>

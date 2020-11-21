@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  namespace :user do
+    get 'inquiries/new'
+    get 'inquiries/create'
+  end
   namespace :admin do
     resources :users, only:[:index,:update,:edit]
     get'top' => 'users#top'
@@ -42,6 +46,9 @@ Rails.application.routes.draw do
     resources :brands,only:[:index, :create, :show]
   end
 
+  scope module: :user do
+    resources :inquiries,only:[:new, :create ]
+  end
 
 
   scope module: :user do
