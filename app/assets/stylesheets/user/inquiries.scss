@@ -1,3 +1,26 @@
 // Place all the styles related to the user/Inquiries controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.inquiry_name{
+	height:30px;
+	width:15%;
+	margin-bottom:10px;
+}
+
+.inquiry_email{
+	height:30px;
+	width:15%;
+	margin-bottom:10px;
+}
+
+.inquiry_message{
+	height:200px;
+	width:25%;
+	margin-bottom:10px;
+}
+
+.inquiry_new{
+	width:100%;
+}

@@ -13,6 +13,6 @@ class User::InquiriesController < ApplicationController
 
   private
   def inquiry_params
-    params.require(:inquiry).permit(:name, :message)
+    params.require(:inquiry).permit(:name, :message, :email)
   end
 end
