@@ -48,6 +48,7 @@ Rails.application.routes.draw do
 
   scope module: :user do
     resources :inquiries,only:[:new, :create ]
+    get 'inquiries/complete' => 'inquiries#complete'
   end
 
 
