@@ -78,4 +78,6 @@ gem 'capistrano3-puma'
 gem 'capistrano-rbenv'
 gem "chartkick"
 gem 'groupdate'
+gem 'omniauth-google-oauth2'
+gem 'omniauth'
 
