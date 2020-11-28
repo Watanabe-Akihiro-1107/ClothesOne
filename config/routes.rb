@@ -1,5 +1,13 @@
 Rails.application.routes.draw do
 
+  devise_for :users, controllers: {
+  sessions: "users/sessions",
+  registrations: 'users/registrations',
+  omniauth_callbacks: "users/omniauth_callbacks"
+  }
+
+  devise_for :admins
+
   namespace :user do
     get 'inquiries/new'
     get 'inquiries/create'
@@ -17,13 +25,7 @@ Rails.application.routes.draw do
     get 'item_comments/create'
     get 'item_comments/destroy'
   end
-    devise_for :users, controllers: {
-    registrations: 'users/registrations',
-    sessions: "users/sessions",
-    omniauth_callbacks: "users/omniauth_callbacks"
-    }
 
-    devise_for :admins
 
     root to: "user/items#top"
 

@@ -19,7 +19,7 @@
 				   <%= render partial: 'user/favorites/favorite', locals: { item: item} %>
 				</div>
 
-				コメント<%= item.item_comments.count %>
+				<%= image_tag("comment.png")%> <%= item.item_comments.count %>
 			</h5>
 
 		<% end %>

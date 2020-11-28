@@ -50,6 +50,10 @@ end
   end
 end
 
+
+
+
+
 def self.without_sns_data(auth)
   user = User.where(email: auth.info.email).first
 
