@@ -33,7 +33,7 @@
 
 }
 .item_index{
-	margin-top:80px;
+	margin-top:60px;
 }
 
 
@@ -60,13 +60,8 @@
 	margin-right:30px;
 }
 
-.follow_box{
-	display:inline;
-	height:50px;
-	width:100px;
-	float:right;
-	padding-top:10px;
-	background-color:#00ff7f;
+.item_index_name{
+	font-weight:500;
 }
 ////*showページ*////
 
@@ -163,9 +158,7 @@
 	}
 
 .top_footer{
-	background-image: image-url("wall2.jpg");
-	background-color:rgba(255,255,255,0.6);
-	background-blend-mode:lighten;
+	background-color:#FFFFFF;
 	height:60px;
 	width:100%;
 	position:fixed;

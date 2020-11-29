@@ -11,3 +11,33 @@
 	font-size:20px;
 }
 
+.delete_follow{
+	font-size:13px;
+	color:#FFFFFF;
+}
+
+.create_follow{
+	font-size:13px;
+	color:#FFFFFF;
+}
+
+.follow_box{
+	display:inline;
+	height:50px;
+	width:100px;
+	float:right;
+	background-color:#00ff7f;
+	line-height:50px;
+}
+
+.follow_delete_box{
+	background-color:#1e90ff;
+	height:50px;
+	width:100px;
+}
+
+.follow_create_box{
+	background-color:#66cdaa;
+	height:50px;
+	width:100px;
+}

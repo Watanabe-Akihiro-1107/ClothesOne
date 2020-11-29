@@ -1,30 +1,12 @@
-<div class="user_show_all">
-<%= render "user/users/user_sidebar" %>
-
-
+<div class = "item_index_main">
+    <%= render "user/users/user_sidebar" %>
     <div class="item_index">
-        <h3 class="user_show_text"><%= @user.nickname %>s Item</h3>
-
-        <% if @items.count > 0 %>
-        <% @items.each do |item|%>
-
-            <h5>
-            <%= link_to item_path(item.id),class: "item_index_image" do %>
-            <%= attachment_image_tag(item, :image, :fill, 340, 400)%><% end %>
-            <br>
-
-        <div id="favorites_buttons_<%= item.id %>">
-           <%= render partial: 'user/favorites/favorite', locals: { item: item} %>
-        </div>
-            コメント<%= item.item_comments.count %>
-            </h5>
-
-
-        <% end %>
+        <%if @items.exists? %>
+            <h1><%= @user.nickname %>さんの投稿</h1>
+        <%= render partial: 'user/items/item_index', locals: { items: @items} %>
         <% else %>
-        <h1>アイテムはありません</h1>
+            <h1>まだ<%= @user.nickname %>さんの投稿はありません。</h1>
         <% end %>
-
     </div>
 </div>
 
