@@ -6,7 +6,7 @@
 				<%= attachment_image_tag(item, :image, :fill, 250, 300)%>
 				<% end %>
 				<div class="item_user">
-					<%= attachment_image_tag item.user, :profile_image, format: 'jpg', size: "40x40" , class: "img-circle", fallback: "no_image.jpg"%>
+					<%= link_to user_path(item.user.id) do %><%= attachment_image_tag item.user, :profile_image, format: 'jpg', size: "40x40" , class: "img-circle", fallback: "no_image.jpg"%><% end %>
 					<strong><%= item.user.nickname %></strong>
 					<% if current_user != item.user %>
 						<div class="follow_box">

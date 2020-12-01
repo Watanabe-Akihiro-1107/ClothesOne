@@ -1,5 +1,35 @@
+<div class="user_detail" style="margin-top:60px;">
+
+
+	<%= attachment_image_tag @user, :profile_image, format: 'jpg', size: "80x80" , class: "img-circle", fallback: "no_image.jpg"%>
+
+	<p class="user_nickname">NAME:<%= @user.nickname %></p>
+			<% if current_user == @user %>
+			<%= link_to "編集する", edit_user_path(@user.id), class: "btn btn-success user_editbtn" %>
+			<% else %>
+
+			<div id="follows_buttons_<%= @user.id %>">
+				<%= render partial: 'user/relationships/user_show_follow', locals: { item: @item} %>
+			</div>
+			<% end %>
+</div>
+
+<div class="user_itemlist">
+	<div class="user_itemlist_left"><%= link_to user_path(@user), class: "user_detail_btn" do %><%= @user.items.count %><% end %>
+		<p>アイテム</p>
+	</div>
+	<div class="user_itemlist_left"><%= link_to favorites_path(@user.id), class: "user_detail_btn"  do %><%= @user.favorites.count%><% end %>
+		<p>お気に入り</p>
+	</div>
+	<div class="user_itemlist_right"><%= link_to @user.follower.count, user_follows_path(@user), class: "user_detail_btn"  %>
+		<p>フォロー</p>
+	</div>
+	<div class="user_itemlist_right"><%= link_to @user.followed.count, user_followers_path(@user), class: "user_detail_btn"  %>
+		<p>フォロワー</p>
+	</div>
+</div>
+
 <div class = "item_index_main">
-    <%= render "user/users/user_sidebar" %>
     <div class="item_index">
         <%if @items.exists? %>
             <h1><%= @user.nickname %>さんの投稿</h1>

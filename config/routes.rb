@@ -43,7 +43,7 @@ Rails.application.routes.draw do
   end
 
   scope module: :user do
-    resources :categories,only:[:index,:create]
+    resources :categories,only:[:index,:create,:show]
   end
 
   scope module: :user do

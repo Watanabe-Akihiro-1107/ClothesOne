@@ -2,7 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-///*show*///
+///*showページ*///
 .user_show_head{
 	margin-top:80px;
 	width:15%;
@@ -57,6 +57,7 @@
 .img-circle{
   margin-top:10px;
   margin-bottom:10px;
+  float:left;
 }
 
 
@@ -68,6 +69,90 @@
   background-image:
   linear-gradient(#ecebeb 50%, transparent 50%, transparent);
   background-size: 10px 10px;
+}
+.user_detail{
+  width:70%;
+  margin:0 auto;
+  height:100px;
+  background-color: #FFFFFF;
+  border: 1px solid #dcdcdc;
+}
+
+.user_nickname{
+  float:left;
+  font-size:25px;
+  padding-top:15px;
+  padding-left:15px;
+  position:absolute;
+  top:75px;
+  left:430px;
+}
+
+.follow_delete_btn{
+  position:absolute;
+  top:90px;
+  left:320px;
+  background-color:#1e90ff;
+  color:#FFFFFF;
+}
+
+.follow_create_btn{
+  position:absolute;
+  top:90px;
+  left:320px;
+  background-color:#66cdaa;
+  color:#FFFFFF;
+}
+
+.user_itemlist{
+  margin-top:30px;
+  width:70%;
+  height:50px;
+  margin:0 auto ;
+  background-color:#FFFFFF;
+  border: 1px solid #dcdcdc;
+}
+
+.user_itemlist_left{
+  float:left;
+  height:50px;
+  width:100px;
+  border: 1px solid #dcdcdc;
+  font-family: "Helvetica Neue", "Helvetica", "Arial", "Verdana", sans-serif;
+  font-weight:bold;
+  font-size:18px;
+  text-align:center;
+}
+
+.user_itemlist_left p{
+  font-size:10px;
+  margin-top:3px;
+}
+
+.user_itemlist_right p{
+  font-size:10px;
+  margin-top:3px;
+}
+
+.user_itemlist_right{
+  float:right;
+  height:50px;
+  width:100px;
+  border: 1px solid #dcdcdc;
+  font-family: "Helvetica Neue", "Helvetica", "Arial", "Verdana", sans-serif;
+  font-weight:bold;
+  font-size:18px;
+  text-align:center;
+}
+
+.user_editbtn{
+  position:absolute;
+  top:90px;
+  left:320px;
+}
+
+.user_detail_btn{
+  color:#000000;
 }
 
 ///*editページ*///

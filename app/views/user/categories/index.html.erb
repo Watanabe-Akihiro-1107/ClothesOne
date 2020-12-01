@@ -1,2 +1,9 @@
-<h1>User::Categories#index</h1>
-<p>Find me in app/views/user/categories/index.html.erb</p>
+ <div style="margin-top:60px;">
+ 	<% @parents.each do |parent| %>
+ 	  <%= link_to "#{parent.category_name}", category_path(parent) %>
+
+ 	    <% parent.children.each do |child| %>
+ 	      <%= link_to "#{child.category_name}", category_path(child) %>
+ 	   <% end %>
+ 	   <% end %>
+</div>

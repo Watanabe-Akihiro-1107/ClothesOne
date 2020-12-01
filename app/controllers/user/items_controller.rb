@@ -1,7 +1,6 @@
 class User::ItemsController < ApplicationController
 
   def top
-    @categories = Category.all
     @inquiry = Inquiry.new
 
   end
