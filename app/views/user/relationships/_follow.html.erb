@@ -1,3 +1,4 @@
+  	<% if user_signed_in? %>
   	<% if current_user != item.user %>
     <% if current_user.following?(item.user) %>
     	<div class="follow_delete_box">
@@ -6,4 +7,5 @@
     	<div class="follow_create_box">
      	<%= link_to user_relationships_path(item.user.id), method: :POST, remote: true, class: "create_follow" do %>フォローする<% end %></div>
     <% end %>
+  	<% end %>
   	<% end %>

@@ -1,5 +1,4 @@
 <div class="notification_index">
-	<%= render "user/users/user_sidebar" %>
 	<div class="notification_detail">
 		<h1>お知らせ</h1><hr>
 
@@ -23,17 +22,17 @@
 				<% elsif notification.action == "comment"%>
 					<!-- コメントした人ユーザーのIDとコメントされた投稿のユーザーのIDが違う場合 -->
 					<% if notification.visited.id != notification.item.user_id %>
-					<%= link_to user_path(notification.item_comment.user) do %>
-					<%= attachment_image_tag notification.item_comment.user, :profile_image, format: 'jpg', size: "30x30" , class: "img-circle", fallback: "no_image.jpg"%>
-					<%= notification.item_comment.user.nickname %><% end %>さんが
-					<%= link_to item_path(notification.item) do %>
-					<%= attachment_image_tag notification.item.user, :profile_image, format: 'jpg', size: "30x30" , class: "img-circle", fallback: "no_image.jpg"%>
-					<%= notification.item.user.nickname %>さんの投稿<% end %>にコメントしました。<%= " (#{time_ago_in_words(notification.created_at)} 前)" %>
+						<%= link_to user_path(notification.item_comment.user) do %>
+						<%= attachment_image_tag notification.item_comment.user, :profile_image, format: 'jpg', size: "30x30" , class: "img-circle", fallback: "no_image.jpg"%>
+						<%= notification.item_comment.user.nickname %><% end %>さんが
+						<%= link_to item_path(notification.item) do %>
+						<%= attachment_image_tag notification.item.user, :profile_image, format: 'jpg', size: "30x30" , class: "img-circle", fallback: "no_image.jpg"%>
+						<%= notification.item.user.nickname %>さんの投稿<% end %>にコメントしました。<%= " (#{time_ago_in_words(notification.created_at)} 前)" %>
 					<% else %>
-					<%= link_to user_path(notification.item_comment.user) do %>
-					<%= attachment_image_tag notification.item_comment.user, :profile_image, format: 'jpg', size: "30x30" , class: "img-circle", fallback: "no_image.jpg"%>
-					<%= notification.visitor.nickname %><% end %>が
-					<%= link_to item_path(notification.item) do %>あなたの投稿<% end %>にコメントしました。<%= " (#{time_ago_in_words(notification.created_at)} 前)" %>
+						<%= link_to user_path(notification.item_comment.user) do %>
+						<%= attachment_image_tag notification.item_comment.user, :profile_image, format: 'jpg', size: "30x30" , class: "img-circle", fallback: "no_image.jpg"%>
+						<%= notification.visitor.nickname %><% end %>が
+						<%= link_to item_path(notification.item) do %>あなたの投稿<% end %>にコメントしました。<%= " (#{time_ago_in_words(notification.created_at)} 前)" %>
 					<% end %><hr>
 				<% end %>
 
