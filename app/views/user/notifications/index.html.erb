@@ -7,8 +7,6 @@
 		<% if @notifications.exists? %>
 		<% @notifications.each do |notification|%>
 
-
-
 				<!-- 受け取ったactionカラムに応じて表示を分岐させる -->
 				<% if notification.action == "follow" %>
 					<%= link_to user_path(notification.visitor) do %>
@@ -39,7 +37,7 @@
 		<% end %><!-- ここで繰り返しが終わっている -->
 
 		<% else %><!-- 存在していなければ -->
-		<h2>お知らせはありません</h2>
+			<h2>お知らせはありません</h2>
 		<% end %>
 
 		<%= link_to "通知ボックスを空にする", notifications_destroy_all_path, method: :delete ,class: "btn btn-danger"%>

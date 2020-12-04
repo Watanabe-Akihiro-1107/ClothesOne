@@ -1,22 +1,32 @@
 <div class="admin_brand_index">
-		<%= form_with model: @brand, url: admin_brands_path do |f| %>
-		<%= f.label :brand_name %>
-		<%= f.text_field :brand_name%>
-		<%= f.submit %>
-		<% end %>
-			<table class="table table-striped table-hover">
-				<tr><th>ブランド名</th><th>有効ステータス</th><th>有効フラグ</th><th></th></tr>
-				<% @brands.each do |brand| %>
+	<%= form_with model: @brand, url: admin_brands_path do |f| %>
+	<%= f.label :brand_name %>
+	<%= f.text_field :brand_name%>
+	<%= f.submit %>
+	<% end %>
+		<table class="table table-striped table-hover">
+			<tr>
+				<th>ブランド名</th>
+				<th>有効ステータス</th>
+				<th>有効フラグ</th><th></th>
+			</tr>
+			<% @brands.each do |brand| %>
 				<tr>
-				<td><%= brand.brand_name %></td>
-				<td><% if brand.brand_status == true %>
-              		<p>有効</p>
-            		<% else %>
-              		<p>無効</p>
-            		<% end %></td>
-				<td><%= link_to "EDIT", edit_admin_brand_path(brand.id) %></td>
-				<td><%= link_to "DELETE", admin_brand_path(brand.id), method: :delete %>
+					<td>
+						<%= brand.brand_name %>
+					</td>
+					<td>
+						<% if brand.brand_status == true %>
+          					<p>有効</p>
+        				<% else %>
+          					<p>無効</p>
+        				<% end %>
+        			</td>
+					<td>
+						<%= link_to "EDIT", edit_admin_brand_path(brand.id) %>
+					</td>
+					<td><%= link_to "DELETE", admin_brand_path(brand.id), method: :delete %>
 				</tr>
-				<% end %>
-			</table>
+			<% end %>
+		</table>
 </div>

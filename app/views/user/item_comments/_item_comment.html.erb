@@ -1,21 +1,26 @@
-				<h2>コメント一覧</h2>
-				<%if @item.item_comments.count > 0 %>
-				<% @item.item_comments.each do |item_comment| %>
-
-				<table class="table">
-            		<tr><td>投稿者<%= item_comment.user.nickname %></td>
-            		<td>投稿日<%= item_comment.created_at.strftime('%Y/%m/%d') %></td></tr>
-            	</table>
-
-            	<div class="item_comment_detail">
-            		<table class = "table table-hover">
-         				<tr><td><%= item_comment.comment %></td></tr>
-         			</table>
-         		</div>
-
-
-  				<% end %>
-
-  				<% else %>
-  				<h4>コメントはまだありません</h4>
-  				<% end %>
+<h2>コメント一覧</h2>
+<%if @item.item_comments.count > 0 %>
+  <% @item.item_comments.each do |item_comment| %>
+    <table class="table">
+    	<tr>
+        <td>
+          投稿者<%= item_comment.user.nickname %>
+        </td>
+    		<td>
+          投稿日<%= item_comment.created_at.strftime('%Y/%m/%d') %>
+        </td>
+      </tr>
+    </table>
+    <div class="item_comment_detail">
+  		<table class = "table table-hover">
+  			<tr>
+          <td>
+            <%= item_comment.comment %>
+          </td>
+        </tr>
+ 			</table>
+ 		</div>
+	<% end %>
+<% else %>
+	<h4>コメントはまだありません</h4>
+<% end %>

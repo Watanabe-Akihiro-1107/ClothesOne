@@ -10,7 +10,6 @@ class User::ItemsController < ApplicationController
     if current_user.id != @item.user_id
     redirect_to root_path
   end
-
   end
 
   def index
@@ -28,14 +27,15 @@ class User::ItemsController < ApplicationController
     end
   end
 
+
   def update
     @item =Item.find(params[:id])
     @item.update(item_params)
     redirect_to item_path(@item.id)
   end
 
-  def create
 
+  def create
     @item = Item.new(item_params)
     @item.user_id = current_user.id
     if @item.save
@@ -45,9 +45,6 @@ class User::ItemsController < ApplicationController
       @item.brand_name =params[:item][:brand_name]
       @item.brand_id = brand.id
     end
-
-
-
 
     if @item.save
       flash[:notice] = "登録が完了しました。"

@@ -1,4 +1,5 @@
 class User::InquiriesController < ApplicationController
+
   def new
   	@inquiry = Inquiry.new
   end
@@ -12,7 +13,7 @@ class User::InquiriesController < ApplicationController
   end
 
   def complete
-    
+
   end
 
   private

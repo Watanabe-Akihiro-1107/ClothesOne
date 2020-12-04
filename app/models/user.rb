@@ -18,10 +18,10 @@ class User < ApplicationRecord
   has_many :sns_credentials, dependent: :destroy
   attachment :profile_image
 
-  # user_status=falseでログイン不可にする
-  def active_for_authentication?
+# user_status=falseでログイン不可にする
+def active_for_authentication?
   super && (self.user_status == true)
-  end
+end
 
 # ユーザーをフォローする
 def follow(user_id)

@@ -13,7 +13,7 @@ class User::UsersController < ApplicationController
     if admin_signed_in?
       redirect_to root_path
     elsif user_signed_in?
-    redirect_to user_path(@user.id)
+      redirect_to user_path(@user.id)
   end
   end
 

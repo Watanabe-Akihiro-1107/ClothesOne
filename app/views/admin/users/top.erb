@@ -1,7 +1,4 @@
 <div class="top_chart">
-<h1>登録者推移</h1>
-<%= column_chart User.group_by_day(:created_at).count,
-				width: '100%',
-                height: '700px'%>
-
+	<h1>登録者推移</h1>
+	<%= column_chart User.group_by_day(:created_at).count,width: '100%',height: '700px'%>
 </div>

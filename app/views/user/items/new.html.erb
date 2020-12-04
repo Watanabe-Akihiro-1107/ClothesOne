@@ -1,33 +1,35 @@
 <% if flash[:danger] %>
-<div class="flash_error"><%= flash[:danger] %></div>
+	<div class="flash_error">
+		<%= flash[:danger] %>
+	</div>
 <% end %>
 
-<div class="new_item_text"><h2>New Item</h2></div>
+<div class="new_item_text">
+	<h2>New Item</h2>
+</div>
 
 <div class= "new_item_form">
 	<%= form_with model: @item, local:true do |f| %>
-
 	<dl>
 		<dt><%= f.label :item_name %></dt>
-		<dd><%= f.text_field :item_name %></dd><br>
+		<dd><%= f.text_field :item_name %></dd>
+		<br>
 		<dt><%= f.label :price %></dt>
-		<dd><%= f.text_field :price %></dd><br>
+		<dd><%= f.text_field :price %></dd>
+		<br>
 		<dt><%= f.label :introduction %></dt>
-		<dd><%= f.text_area :introduction %></dd><br>
-
+		<dd><%= f.text_area :introduction %></dd>
+		<br>
 		<dt><strong>　ブランドを入力　</strong></dt>
-		<dd><%= f.text_field :brand_name %></dd><br>
-
-
+		<dd><%= f.text_field :brand_name %></dd>
+		<br>
 		<dt><strong>カテゴリーを選択</strong></dt>
 
 		<dd><%= f.collection_select :category_id, Category.where(id: 4..23), :id, :category_name, include_blank: "選択して下さい" %></dd>
-		<dt><%= f.attachment_field :image,class:"field_btn" %></dt><dd></dd><br>
+		<dt><%= f.attachment_field :image,class:"field_btn" %></dt><dd></dd>
+		<br>
 	</dl>
-
-	<%= f.submit "アイテムを投稿" ,class: "btn btn-success"%>
-
-
+		<%= f.submit "アイテムを投稿" ,class: "btn btn-success"%>
 	<% end %>
 	<script src="flash_error.js"></script>
 </div>

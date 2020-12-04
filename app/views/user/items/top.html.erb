@@ -1,15 +1,11 @@
 <div class="top_main">
-	<div class="top_main_wrap"><p class="top_main_text">ClothesOne</p>
-		<script>
-			'use strict'
-		</script>
-	<p>登録して友達のお気に入りの服をチェックしましょう</p><br>
+	<div class="top_main_wrap">
+		<p class="top_main_text">ClothesOne</p>
+		<p>登録して友達のお気に入りの服をチェックしましょう</p><br>
 		<p><%= link_to new_user_session_path , class: "btn btn-primary" do %>ログイン<% end %>  もしくは  <%= link_to new_user_registration_path, class: "top_main_text_detail" do %><strong>メールアドレスで登録</strong><% end %></p>
 		<%= link_to user_google_oauth2_omniauth_authorize_path do %>ここからgoogleログイン <% end %>
 	</div>
-
-
 </div>
-	<div class="top_footer"><p>© 2020 ClothesOne<br><%= link_to user_inquiries_new_path, class: "inquiry_form" do %><%= image_tag("mail.png")%>お問い合わせ<% end %></p>
-
-	</div>
+<div class="top_footer">
+	<p>© 2020 ClothesOne<br><%= link_to user_inquiries_new_path, class: "inquiry_form" do %><%= image_tag("mail.png")%>お問い合わせ<% end %></p>
+</div>

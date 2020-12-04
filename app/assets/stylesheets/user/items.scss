@@ -15,8 +15,8 @@
 
 #gmap {
     width:100%;
-   height:500px;
-   margin-top:100px;
+  	height:500px;
+   	margin-top:100px;
 }
 
 
@@ -24,7 +24,6 @@
 .item_index_image{
 	margin-right:15px;
 	margin-top:15px;
-
 }
 
 .item_index_main{
@@ -50,6 +49,7 @@
 	width:250px;
 	height:50px;
 	background-color:#FFFFFF;
+	line-height:50px;
 }
 
 .item_mainbox{
@@ -63,6 +63,8 @@
 .item_index_name{
 	font-weight:500;
 }
+
+
 ////*showページ*////
 
 .wrapper{
@@ -83,7 +85,6 @@
 .item_comment_field{
 	width:450px;
 	text-align:center;
-
 }
 
 .item_detail{
@@ -105,12 +106,9 @@
 	color:black;
 }
 
-
-
 .favorite_heart{
 	color:black;
 }
-
 
 .item_comment_field_detail{
 	float:left;
@@ -227,12 +225,6 @@
 	line-height:40px;
 }
 
-.img_prev:hover {
-  	cursor: pointer; 
-  	opacity: 0.7;
-  	transform: scale(1.01, 1.01);
-}
-
 ///*Editページ*///
 .edit_item_form{
 	margin:0 auto;
@@ -325,9 +317,6 @@
 	line-height:540px;
 	border-radius:0 10px 10px 0;
 }
-
-
-
 
 .category_detail{
 	color:#FFFFFF;
