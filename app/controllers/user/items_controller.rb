@@ -75,7 +75,6 @@ class User::ItemsController < ApplicationController
   def search
     #Viewのformで取得したパラメータをモデルに渡す
     @items = Item.search(params[:search])
-    @user=User.find(current_user.id)
   end
 
 
