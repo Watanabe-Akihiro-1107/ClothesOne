@@ -16,4 +16,7 @@
 		<h1>それではさっそくはじめてみましょう！</h1>
 		<%= link_to new_user_registration_path do %><p class= "btn_clothesone"> Let's Join!!</p> <% end %>
 </div>
-<div class="top_footer"><p>© 2020 ClothesOne</p></div>
+<div class="top_footer">
+	<p>© 2020 ClothesOne<br>
+	<%= link_to user_inquiries_new_path, class: "inquiry_form" do %><%= image_tag("mail.png")%>お問い合わせ<% end %></p>
+</div>
