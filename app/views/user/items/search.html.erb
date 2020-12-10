@@ -4,7 +4,7 @@
 				<h1>#<%= params[:search] %></h1>
 			<%= render partial: 'user/items/item_index', locals: { items: @items} %>
 			<% else %>
-				<h1>まだ<%= params[:search] %>の投稿はありません。</h1>
+				<h1 class="nothing_message">まだ<%= params[:search] %>の投稿はありません。</h1>
 			<% end %>
 		</div>
 </div>

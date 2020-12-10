@@ -32,7 +32,7 @@
 			<h1><%= @user.nickname %>さんがいいねしたアイテム</h1>
 			<%= render partial: 'user/items/item_index', locals: { items: @items} %>
 		<% else %>
-			<h1>まだいいねしたアイテムはありません</h1>
+			<h1 class="nothing_message">まだいいねしたアイテムはありません</h1>
 		<% end %>
 	</div>
 </div>
