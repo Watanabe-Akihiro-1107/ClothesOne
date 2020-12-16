@@ -3,17 +3,23 @@
 	<% if @users.count > 0 %>
 		<% @users.each do |user| %>
 			<div class ="relationships_box">
-				<%= link_to user_path(user) do %><%= attachment_image_tag(user, :profile_image, :fill, 50, 50, fallback: "no_image.jpg", size:'50x50',class: "img-circle")%><% end %>
-				<%= user.nickname %>
-				<%= link_to user_followers_path(user) do %><%= user.followed.count%><% end %>
-				<%= link_to user_path(user) do %><%= user.items.count%><% end %>
-				<% if current_user != user %>
-  				<% if current_user.following?(user) %>
-  					<%= link_to 'フォロー外す', user_relationships_path(user.id), method: :delete, class: "btn btn-danger" %>
-  				<% else %>
-   					<%= link_to 'フォローする', user_relationships_path(user.id), method: :POST, class: "btn btn-success"%>
-  				<% end %>
-				<% end %>
+				<div class="relationship_img_box">
+				<%= link_to user_path(user) do %><%= attachment_image_tag(user, :profile_image, fallback: "no_image.jpg", size:'70x70',class: "img-circle relationship_img")%><% end %>
+				</div>
+				<div class ="relationship_follow_box">
+					<% if current_user != user %>
+	  				<% if current_user.following?(user) %>
+	  					<%= link_to 'フォロー解除', user_relationships_path(user.id), method: :delete, class: "btn-circle-border-red" %>
+	  				<% else %>
+	   					<%= link_to 'フォローする', user_relationships_path(user.id), method: :POST, class: "btn-circle-border-blue"%>
+	  				<% end %>
+					<% end %>
+				</div>
+				<div class="relationship_user_detail">
+					<h4><%= user.nickname %></h4>
+					<%= link_to user_followers_path(user) do %><%= user.followed.count%><% end %>フォロワー
+					<%= link_to user_path(user) do %><%= user.items.count%><% end %>アイテム
+				</div>
 			</div>
 		<% end %>
 	<% else %>

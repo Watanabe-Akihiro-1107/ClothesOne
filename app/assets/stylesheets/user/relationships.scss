@@ -50,5 +50,72 @@
 .relationships_box{
 	height:120px;
 	width:430px;
-	background-color:#000000;
+	float:left;
+	margin-right:5px;
+	margin-bottom:5px;
+	border:#dcdcdc 1px solid;
 }
+
+.relationship_img_box{
+	height:120px;
+	width:90px;
+	float:left;
+	padding-top:12px;
+	padding-left:9px;
+}
+.relationship_user_detail{
+	height:120px;
+	width:248px;
+	float:right;
+	padding-top:22px;
+}
+
+.relationship_follow_box{
+	height:120px;
+	width:90px;
+	float:right;
+	padding-top:22px;
+	padding-left:9px;
+}
+
+.btn-circle-border-blue {
+  display: inline-block;
+  text-decoration: none;
+  color: #668ad8;
+  width: 70px;
+  height: 70px;
+  line-height: 70px;
+  border-radius: 50%;
+  border: solid 2px #668ad8;
+  text-align: center;
+  overflow: hidden;
+  font-weight: bold;
+  font-size:10px;
+  transition: .4s;
+}
+
+.btn-circle-border-blue:hover {
+  background: #b3e1ff;
+}
+
+.btn-circle-border-red {
+  display: inline-block;
+  text-decoration: none;
+  color: #dc143c;
+  width: 70px;
+  height: 70px;
+  line-height: 70px;
+  border-radius: 50%;
+  border: solid 2px #dc143c;
+  text-align: center;
+  overflow: hidden;
+  font-weight: bold;
+  font-size:10px;
+  transition: .4s;
+}
+
+.btn-circle-border-red:hover {
+  background: #ff6347;
+  color:#000000;
+}
+
