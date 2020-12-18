@@ -45,8 +45,8 @@
 				</div>
 				<div class="relationship_user_detail">
 					<h4><%= user.nickname %></h4>
-					<%= link_to user_followers_path(user) do %><%= user.followed.count%><% end %>フォロワー
-					<%= link_to user_path(user) do %><%= user.items.count%><% end %>アイテム
+					<%= link_to user_followers_path(user), class: "user_follow_detail" do %><%= user.followed.count%><% end %>フォロワー
+					<%= link_to user_path(user), class: "user_follow_detail"  do %><%= user.items.count%><% end %>アイテム
 				</div>
 			</div>
 		<% end %>
