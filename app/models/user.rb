@@ -17,6 +17,8 @@ class User < ApplicationRecord
   has_many :passive_notifications, class_name: 'Notification', foreign_key: 'visited_id', dependent: :destroy
   has_many :sns_credentials, dependent: :destroy
   attachment :profile_image
+  validates :nickname, presence: true
+  validates :nickname,    length: { in: 1..20 }
 
 # user_status=falseでログイン不可にする
 def active_for_authentication?
