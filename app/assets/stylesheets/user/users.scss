@@ -82,6 +82,7 @@
   height:100px;
   background-color: #FFFFFF;
   border: 1px solid #dcdcdc;
+  border-bottom:none;
 }
 
 .user_nickname{
@@ -111,19 +112,22 @@
 }
 
 .user_itemlist{
-  margin-top:30px;
   width:70%;
-  height:50px;
+  height:52px;
   margin:0 auto ;
   background-color:#FFFFFF;
   border: 1px solid #dcdcdc;
+  border-left:none;
+  border-right:none;
+
 }
 
 .user_itemlist_left{
   float:left;
   height:50px;
   width:100px;
-  border: 1px solid #dcdcdc;
+  border-right: 1px solid #dcdcdc;
+  border-left: 1px solid #dcdcdc;
   font-family: "Helvetica Neue", "Helvetica", "Arial", "Verdana", sans-serif;
   font-weight:bold;
   font-size:18px;
@@ -144,7 +148,8 @@
   float:right;
   height:50px;
   width:100px;
-  border: 1px solid #dcdcdc;
+  border-right: 1px solid #dcdcdc;
+  border-left: 1px solid #dcdcdc;
   font-family: "Helvetica Neue", "Helvetica", "Arial", "Verdana", sans-serif;
   font-weight:bold;
   font-size:18px;
@@ -171,9 +176,7 @@
   height:50px;
   width:125px;
   float:left;
-  border-left:2px solid #dcdcdc;
-  border-top:2px solid #dcdcdc;
-  border-bottom:2px solid #dcdcdc;
+  border-top:1px solid #dcdcdc;
   background-color:#FFFFFF;
   line-height:50px;
 }
@@ -183,9 +186,7 @@
   height:50px;
   width:125px;
   float:right;
-  border-right:2px solid #dcdcdc;
-  border-top:2px solid #dcdcdc;
-  border-bottom:2px solid #dcdcdc;
+  border-top:1px solid #dcdcdc;
   background-color:#FFFFFF;
   line-height:50px;
 }

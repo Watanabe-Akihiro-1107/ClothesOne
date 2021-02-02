@@ -1,4 +1,4 @@
-<div style="width:100%; height:170px; background-color:#FFFFFF;">
+<div style="width:100%; height:170px; background-color:#FFFFFF; border-bottom:1px solid #c0c0c0;">
 	<div class="user_detail" style="margin-top:60px;">
 		<%= attachment_image_tag @user, :profile_image, format: 'jpg', size: "80x80" , class: "img-circle user_show_image", fallback: "no_image.jpg"%>
 		<p class="user_nickname">NAME:<%= @user.nickname %></p>
@@ -25,6 +25,7 @@
 			<p>フォロワー</p>
 		</div>
 	</div>
+
 
 
 	<div class = "item_index_main">
