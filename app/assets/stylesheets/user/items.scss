@@ -91,31 +91,6 @@
 
 ////*showページ*////
 
-.wrapper{
-	margin:60px 0 ;
-	width:100%;
-}
-
-.item_clearfix{
-	width:80%;
-	margin:0 auto;
-}
-
-.item_wrapper{
-	float:left;
-	margin-left:100px;
-}
-
-.item_comment_field{
-	width:450px;
-	text-align:center;
-}
-
-.item_detail{
-	float:left;
-	text-align:center;
-}
-
 .item_image{
 	float:left;
 }
@@ -134,13 +109,54 @@
 	color:black;
 }
 
-.item_comment_field_detail{
+.item_reaction{
+	height:454px;
+	width:404px;
+	border:2px solid #c71585;
+	margin-left:150px;
+}
+
+.reaction_favorite{
+	height:80px;
+	width:404px;
+	border:2px solid #006400;
+	margin-left:150px;
+	background-color:#FFFFFF;
+}
+
+.favorite_btn_box{
 	float:left;
-	width:550px;
+	margin-left:25px;
+	margin-top:20px;
+	border:solid 1px #a9a9a9;
+	border-radius:4px;
+	height:35px;
+	width:150px;
+	background-color:#f5f5f5;
 	text-align:center;
 }
 
+.comment_btn_box{
+	float:right;
+	margin-right:25px;
+	margin-top:20px;
+	border:solid 1px #a9a9a9;
+	border-radius:4px;
+	height:35px;
+	width:150px;
+	background-color:#f5f5f5;
+	display:inline;
+	text-align:center;
+}
 
+.item_comment_area{
+	background-color:#FFFFFF;
+	border:solid 1px #a9a9a9;
+	border-radius:0 0 2px 2px;
+	width:404px;
+	height:auto;
+	margin-left:150px;
+}
 
 ////*topページ*////
 
