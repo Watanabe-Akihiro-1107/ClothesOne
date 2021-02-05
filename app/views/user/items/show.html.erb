@@ -18,6 +18,7 @@
 	</div>
 </div>
 <div class="item_comment_area">
+	<p class='item_comment_nickname_weight'><%= @user.nickname %>さんへのコメント</p>
 	<div id="item_comments_buttons_<%= @item.id %>">
 	   <%= render partial: 'user/item_comments/item_comment'%>
 	</div>

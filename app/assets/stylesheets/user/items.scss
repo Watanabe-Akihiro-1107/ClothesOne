@@ -150,7 +150,6 @@
 }
 
 .item_comment_area{
-	background-color:#FFFFFF;
 	border:solid 1px #a9a9a9;
 	border-radius:0 0 2px 2px;
 	width:404px;
@@ -158,6 +157,34 @@
 	margin-left:150px;
 }
 
+.item_comment_area_into{
+	height:auto;
+	width:404px;
+	padding-bottom:10px;
+}
+
+.item_comment_profile_image{
+	float:left;
+
+}
+
+.item_comment_nickname_area{
+	height:20px;
+	width:354px;
+	margin-left:50px;
+	border-bottom:1px solid #d3d3d3;
+	padding-bottom:5px;
+}
+
+.item_comment_content_area{
+	height:auto;
+	width:344px;
+	background-color:#dcdcdc;
+	margin-left:50px;
+	border:1px solid #c0c0c0;
+	border-radius:10px;
+	pdding-top:5px;
+}
 ////*topページ*////
 
 .top_main{

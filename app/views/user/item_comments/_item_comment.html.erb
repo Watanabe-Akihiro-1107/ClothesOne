@@ -1,11 +1,21 @@
-<p><%= @user.nickname %>さんへのコメント</p>
+
+
 <%if @item.item_comments.count > 0 %>
   <% @item.item_comments.each do |item_comment| %>
-          <%= item_comment.user.nickname %>
+    <div class="item_comment_area_into">
 
-          <%= item_comment.created_at.strftime('%Y/%m/%d') %>
+        <%= attachment_image_tag item_comment.user, :profile_image, :fill, 40, 40, class: "item_comment_profile_image" %>
 
-            <%= item_comment.comment %>
+
+      <div class='item_comment_nickname_area'>
+      <%= item_comment.user.nickname %>
+      <%= item_comment.created_at.strftime('%Y/%m/%d/%H:%M') %>
+      </div>
+
+      <div class='item_comment_content_area'>
+        <%= item_comment.comment %>
+      </div>
+    </div>
 
 	<% end %>
 <% else %>
