@@ -1,72 +1,65 @@
 
-	<%= render "user/users/profile" %>
-	<%= render "user/items/sidebar" %>
-
-
-<div class="item_reaction">
-	<%= attachment_image_tag(@item, :image, :fill, 520, 620, class: "item_image") %>
-
-</div>
-<div class="reaction_favorite">
-	<div class="favorite_btn_box">
-		<div id="favorites_buttons_<%= @item.id %>">
-				<%= render partial: 'user/favorites/favorite2', locals: { item: @item} %>
+<%= render "user/users/profile" %>
+<%= render "user/items/sidebar" %>
+	<div class="item_reaction">
+		<%= attachment_image_tag(@item, :image, :fill, 520, 620, class: "item_image") %>
+	</div>
+	<div class="reaction_favorite">
+		<div class="favorite_btn_box">
+			<div id="favorites_buttons_<%= @item.id %>">
+					<%= render partial: 'user/favorites/favorite2', locals: { item: @item} %>
+			</div>
+		</div>
+		<div class="comment_btn_box">
+			<%= image_tag('comment.png')%><p class='item_comment_count'>(<%= @item.item_comments.count%>)</p>
 		</div>
 	</div>
-	<div class="comment_btn_box">
-		<%= image_tag('comment.png')%><p class='item_comment_count'>(<%= @item.item_comments.count%>)</p>
-	</div>
-</div>
-<div class="item_comment_area">
-	<p class='item_comment_nickname_weight'><%= @user.nickname %>さんへのコメント</p>
-	<div id="item_comments_buttons_<%= @item.id %>">
-	   <%= render partial: 'user/item_comments/item_comment'%>
-	</div>
-</div>
 
-<%if user_signed_in? %>
-	<div class="comment_form">
-		<%= attachment_image_tag current_user, :profile_image, :fill, 40, 40, class: 'comment_form_profile_image'%>
-		<%= form_for [@item, @item_comment], remote: true do |f| %>
-		<%= f.text_area :comment, :size=>'46x2',placeholder: "コメントを書く",class: "item_comment_content"%>
-		<%= f.submit "送信",class: "item_comment_btn"%>
+	<div class="item_comment_area">
+		<p class='item_comment_nickname_weight'><%= @user.nickname %>さんへのコメント</p>
+		<div id="item_comments_buttons_<%= @item.id %>">
+		   <%= render partial: 'user/item_comments/item_comment'%>
+		</div>
+		<%if user_signed_in? %>
+			<div class="comment_form">
+				<%= attachment_image_tag current_user, :profile_image, :fill, 40, 40, class: 'comment_form_profile_image'%>
+				<%= form_for [@item, @item_comment], remote: true do |f| %>
+				<%= f.text_area :comment, :size=>'43x2',placeholder: "コメントを書く",class: "item_comment_content"%>
+				<%= f.submit "送信",class: "item_comment_btn"%>
+				<% end %>
+			</div>
 		<% end %>
 	</div>
-<% end %>
 
-		<% if user_signed_in? %>
-			<% if current_user.id == @item.user_id %>
-				<table class="table table-hover">
-				<tr>
-					<td align="center"><%= link_to edit_item_path ,class: "btn_detail" do %>
-						<button type="button" class="btn btn-light">EDIT</button><% end %>
-					</td>
-				</tr>
-				<tr>
-					<td align="center"><%= link_to item_path, method: :delete ,class: "btn_detail" do %><button type="button" class="btn btn-danger">DELETE</button><% end %>
-					</td>
-				</tr>
-				</table>
-			<% end %>
+
+	<div class="item_detail_area">
+		<p class='item_name'><%= @item.item_name %></p>
+		<hr style='width:90%;'>
+		<p class='item_introduction'><%= @item.introduction %></p>
+		<hr style='width:90%;'>
+		<p class='brand_name'>SHOP / <%= link_to brand_path(@item.brand_id) do %><span id="item_brandid", style='color:#00bfff;'><%= @item.brand_name %></span><% end %></p>
+		<p class='category_name'>Category / <%= link_to items_path(category_id: @item.category_id) do %><span style='color:#00bfff;'><%= @item.category.category_name %><% end %></p>
+		<p class='item_create_time'><%= @item.created_at.strftime('%Y/%m/%d/%H:%M') %></p>
+	</div>
+
+
+	<% if user_signed_in? %>
+		<% if current_user.id == @item.user_id %>
+			<table class="table table-hover">
+			<tr>
+				<td align="center"><%= link_to edit_item_path ,class: "btn_detail" do %>
+					<button type="button" class="btn btn-light">EDIT</button><% end %>
+				</td>
+			</tr>
+			<tr>
+				<td align="center"><%= link_to item_path, method: :delete ,class: "btn_detail" do %><button type="button" class="btn btn-danger">DELETE</button><% end %>
+				</td>
+			</tr>
+			</table>
 		<% end %>
+	<% end %>
 
 
-<div class="item_detail_area">
-	<p class='item_name'><%= @item.item_name %></p>
-	<p class='brand_name'>SHOP:<%= link_to brand_path(@item.brand_id) do %><span id="item_brandid"><%= @item.brand_name %></span><% end %></p>
-
-<hr style='width:90%;'>
-
-<p class='item_introduction'><%= @item.introduction %></p>
-
-<hr style='width:90%;'>
-	<%= @item.category.category_name %>
-
-
-
-
-
-</div>
 
 
 

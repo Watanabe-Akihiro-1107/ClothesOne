@@ -90,6 +90,11 @@
 }
 
 ////*showページ*////
+.item_show_container{
+	width:100%;
+	height:auto;
+	padding-bottom:50px;
+}
 
 .item_image{
 	float:left;
@@ -113,6 +118,7 @@
 	height:624px;
 	width:524px;
 	border:2px solid #c71585;
+	margin-top:15px;
 	margin-left:214px;
 }
 
@@ -152,10 +158,12 @@
 .item_comment_area{
 	border:solid 1px #a9a9a9;
 	border-radius:0 0 2px 2px;
-	width:524px;
+	width:420px;
 	height:auto;
-	margin-left:214px;
 	background-color:#FFFFFF;
+	position:absolute;
+	top:570px;
+	right:215px;
 }
 
 .item_comment_area_into{
@@ -167,6 +175,7 @@
 
 .item_comment_profile_image{
 	float:left;
+	margin-left:2px;
 
 }
 
@@ -183,7 +192,7 @@
 
 .item_comment_content_area{
 	height:auto;
-	width:454px;
+	width:364px;
 	background-color:#f5f5f5;
 	margin-left:50px;
 	border:1px solid #c0c0c0;
@@ -195,29 +204,44 @@
 	width:420px;
 	height:auto;
 	float:right;
-	background-color:#ff7f50;
+	background-color:#FFFFFF;
 	border:1px solid #c0c0c0;
+	border-radius:2px;
 	position:absolute;
 	top:245px;
 	right:215px;
+	padding-bottom:20px;
 }
 
 .item_name{
 	font-weight:bold;
 	font-size:20px;
 	margin:20px 15px 0 25px ;
+	padding-bottom:15px;
 	display:inline;
 	float:left;
 }
 
 .brand_name{
-	color:#4682b4;
+	color:#00bfff;
 	font-weight:bold;
-	display:inline-block;
-	margin:20px 15px 0 25px ;
+	font-size:12px;
+	margin:0 0 0 25px ;
 }
 .item_introduction{
 	margin-left:25px;
+}
+
+.category_name{
+	margin:0 0 0 25px ;
+	font-size:12px;
+	font-weight:bold;
+	color:#00bfff;
+}
+
+.item_create_time{
+	font-size:10px;
+	margin:10px 15px 0 25px ;
 }
 ////*topページ*////
 
@@ -226,9 +250,7 @@
 	width:100%;
 	margin-top:50px;
 	text-align:center;
-	background: #83a4d4; /* fallback for old browsers */
-	background: -webkit-linear-gradient(to right, #83a4d4, #b6fbff); /* Chrome 10-25, Safari 5.1-6 */
-	background: linear-gradient(to right, #83a4d4, #b6fbff);
+	background-color:#00bfff;
 	color:#FFFFFF;
 
 }
