@@ -110,23 +110,23 @@
 }
 
 .item_reaction{
-	height:454px;
-	width:404px;
+	height:624px;
+	width:524px;
 	border:2px solid #c71585;
-	margin-left:150px;
+	margin-left:214px;
 }
 
 .reaction_favorite{
 	height:80px;
-	width:404px;
+	width:524px;
 	border:2px solid #006400;
-	margin-left:150px;
+	margin-left:214px;
 	background-color:#FFFFFF;
 }
 
 .favorite_btn_box{
 	float:left;
-	margin-left:25px;
+	margin-left:60px;
 	margin-top:20px;
 	border:solid 1px #a9a9a9;
 	border-radius:4px;
@@ -138,7 +138,7 @@
 
 .comment_btn_box{
 	float:right;
-	margin-right:25px;
+	margin-right:60px;
 	margin-top:20px;
 	border:solid 1px #a9a9a9;
 	border-radius:4px;
@@ -152,15 +152,17 @@
 .item_comment_area{
 	border:solid 1px #a9a9a9;
 	border-radius:0 0 2px 2px;
-	width:404px;
+	width:524px;
 	height:auto;
-	margin-left:150px;
+	margin-left:214px;
+	background-color:#FFFFFF;
 }
 
 .item_comment_area_into{
 	height:auto;
 	width:404px;
 	padding-bottom:10px;
+	background-color:#FFFFFF;
 }
 
 .item_comment_profile_image{
@@ -170,20 +172,52 @@
 
 .item_comment_nickname_area{
 	height:20px;
-	width:354px;
+	width:454px;
 	margin-left:50px;
-	border-bottom:1px solid #d3d3d3;
 	padding-bottom:5px;
+}
+
+.item_comment_nickname_area p{
+	color:#808080;
 }
 
 .item_comment_content_area{
 	height:auto;
-	width:344px;
-	background-color:#dcdcdc;
+	width:454px;
+	background-color:#f5f5f5;
 	margin-left:50px;
 	border:1px solid #c0c0c0;
 	border-radius:10px;
 	pdding-top:5px;
+}
+
+.item_detail_area{
+	width:420px;
+	height:auto;
+	float:right;
+	background-color:#ff7f50;
+	border:1px solid #c0c0c0;
+	position:absolute;
+	top:245px;
+	right:215px;
+}
+
+.item_name{
+	font-weight:bold;
+	font-size:20px;
+	margin:20px 15px 0 25px ;
+	display:inline;
+	float:left;
+}
+
+.brand_name{
+	color:#4682b4;
+	font-weight:bold;
+	display:inline-block;
+	margin:20px 15px 0 25px ;
+}
+.item_introduction{
+	margin-left:25px;
 }
 ////*topページ*////
 

@@ -4,7 +4,7 @@
 
 
 <div class="item_reaction">
-	<%= attachment_image_tag(@item, :image, :fill, 400, 450, class: "item_image") %>
+	<%= attachment_image_tag(@item, :image, :fill, 520, 620, class: "item_image") %>
 
 </div>
 <div class="reaction_favorite">
@@ -24,6 +24,15 @@
 	</div>
 </div>
 
+<%if user_signed_in? %>
+	<div class="comment_form">
+		<%= attachment_image_tag current_user, :profile_image, :fill, 40, 40, class: 'comment_form_profile_image'%>
+		<%= form_for [@item, @item_comment], remote: true do |f| %>
+		<%= f.text_area :comment, :size=>'46x2',placeholder: "コメントを書く",class: "item_comment_content"%>
+		<%= f.submit "送信",class: "item_comment_btn"%>
+		<% end %>
+	</div>
+<% end %>
 
 		<% if user_signed_in? %>
 			<% if current_user.id == @item.user_id %>
@@ -42,48 +51,24 @@
 		<% end %>
 
 
-		<table class ="table table-hover">
-			<tr>
-				<td>USER</td>
-				<td><%= link_to user_path(@item.user.id) do %>
-					<%= @item.user.nickname %><% end %>
-				</td>
-			</tr>
-			<tr>
-				<td>SHOP</td>
-				<td><%= link_to brand_path(@item.brand_id) do %>
-					<p id="item_brandid"><%= @item.brand_name %></p><% end %>
-				</td>
-			</tr>
+<div class="item_detail_area">
+	<p class='item_name'><%= @item.item_name %></p>
+	<p class='brand_name'>SHOP:<%= link_to brand_path(@item.brand_id) do %><span id="item_brandid"><%= @item.brand_name %></span><% end %></p>
 
-			<tr>
-				<td>ITEM-NAME</td>
-				<td><%= @item.item_name %></td>
-			</tr>
-			<tr>
-				<td>PRICE</td>
-				<td><%= @item.price %></td>
-			</tr>
-			<tr>
-				<td>CATEGORY</td>
-				<td><%= @item.category.category_name %></td>
-			</tr>
-		</table>
-		<table class="table table-hover">
-			<tr><td>INTRODUCTION</td></tr>
-			<tr><td><%= @item.introduction %></td></tr>
-		</table>
+<hr style='width:90%;'>
+
+<p class='item_introduction'><%= @item.introduction %></p>
+
+<hr style='width:90%;'>
+	<%= @item.category.category_name %>
 
 
 
 
-	<%if user_signed_in? %>
-		<div class="comment_form">
-			<%= form_for [@item, @item_comment], remote: true do |f| %>
-			<%= f.text_area :comment, :size=>'52x5',placeholder: "コメントをここに入力してください"%><br>
-			<%= f.submit "送信する"%>
-			<% end %>
-		</div>
-	<% end %>
+
+</div>
+
+
+
 
 
