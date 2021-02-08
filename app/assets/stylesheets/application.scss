@@ -17,13 +17,19 @@
 @import "bootstrap";            /*ここを追加*/
 
 
+
 body {
 font-family: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ W3", "Hiragino Kaku Gothic", "Lucida Grande", "メイリオ", Verdana, "ＭＳ Ｐゴシック", sans-serif;
 background-color:#f5f5f5;
-font-weight: 200;
+
 }
 
 
+.clearfix::after {
+  content: "";
+  display: block;
+  clear: both;
+}
 
 /*---ヘッダー---*/
 .clothesone{
@@ -32,6 +38,7 @@ font-weight: 200;
 	line-height:50px;
 	color:#00bfff;
 }
+
 
 .navbar-left{
 	width:55%;
@@ -54,6 +61,21 @@ header{
   	box-shadow: 0px 10px 10px -5px rgba(0,0,0,0.5);
 }
 
+footer{
+	background-color:blue;
+	position: absolute;/* ←絶対位置 */
+	bottom:0;
+	width:100%;
+	height:100px;
+
+}
+
+.footer_fixed{
+	min-height: 100vh; /* ←コンテンツの高さの最小値＝ブラウザの高さに指定 */
+    position: relative;/* ←相対位置 */
+    padding-bottom: 100px; /* ←フッターの高さを指定 */
+    box-sizing: border-box;
+}
 .btn-detail{
 	color:black;
 	font-size:12px;

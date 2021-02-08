@@ -1,6 +1,7 @@
 
 <%= render "user/users/profile" %>
 <%= render "user/items/sidebar" %>
+<div class='clearfix'>
 	<div class="item_reaction">
 		<%= attachment_image_tag(@item, :image, :fill, 520, 620, class: "item_image") %>
 	</div>
@@ -58,7 +59,7 @@
 			</table>
 		<% end %>
 	<% end %>
-
+</div>
 
 
 
