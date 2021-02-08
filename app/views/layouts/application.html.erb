@@ -103,7 +103,10 @@
 
       </header>
       <%= yield %>
-      <footer><p>©︎ClothesOne</p></footer>
+      <footer>
+        <p class='footer_top_txt'>©︎ClothesOne</p>
+        <p><%= link_to user_inquiries_new_path,class: "footer_mail_txt" do %><%= image_tag("mail.png")%>お問い合わせ<% end %></p>
+      </footer>
     </div>
   </body>
 </html>
