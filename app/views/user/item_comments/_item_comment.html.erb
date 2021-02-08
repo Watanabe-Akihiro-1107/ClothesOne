@@ -3,10 +3,7 @@
 <%if @item.item_comments.count > 0 %>
   <% @item.item_comments.each do |item_comment| %>
     <div class="item_comment_area_into">
-
         <%= attachment_image_tag item_comment.user, :profile_image, :fill, 40, 40, class: "item_comment_profile_image" %>
-
-
       <div class='item_comment_nickname_area'>
       <p><%= item_comment.user.nickname %>
       <%= item_comment.created_at.strftime('%Y/%m/%d/%H:%M') %></p>
@@ -21,3 +18,4 @@
 <% else %>
 	<h4>コメントはまだありません</h4>
 <% end %>
+

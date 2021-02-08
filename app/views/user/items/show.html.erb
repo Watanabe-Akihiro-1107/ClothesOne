@@ -1,20 +1,35 @@
 
 <%= render "user/users/profile" %>
 <%= render "user/items/sidebar" %>
-<div class='clearfix'>
-	<div class="item_reaction">
-		<%= attachment_image_tag(@item, :image, :fill, 520, 620, class: "item_image") %>
-	</div>
-	<div class="reaction_favorite">
-		<div class="favorite_btn_box">
-			<div id="favorites_buttons_<%= @item.id %>">
-					<%= render partial: 'user/favorites/favorite2', locals: { item: @item} %>
+<div class='item_show_container'>
+	<div class='item_reaction_wrapper'>
+		<div class="item_reaction">
+			<%= attachment_image_tag(@item, :image, :fill, 520, 620, class: "item_image") %>
+		</div>
+		<div class="reaction_favorite">
+			<div class="favorite_btn_box">
+				<div id="favorites_buttons_<%= @item.id %>">
+						<%= render partial: 'user/favorites/favorite2', locals: { item: @item} %>
+				</div>
+			</div>
+			<div class="comment_btn_box">
+				<%= image_tag('comment.png')%><p class='item_comment_count'>(<%= @item.item_comments.count%>)</p>
 			</div>
 		</div>
-		<div class="comment_btn_box">
-			<%= image_tag('comment.png')%><p class='item_comment_count'>(<%= @item.item_comments.count%>)</p>
-		</div>
 	</div>
+
+
+	<div class="item_detail_area">
+		<p class='item_name'><%= @item.item_name %></p>
+		<hr style='width:90%;'>
+		<p class='item_introduction'><%= @item.introduction %></p>
+		<hr style='width:90%;'>
+		<p class='brand_name'>SHOP / <%= link_to brand_path(@item.brand_id) do %><span id="item_brandid", style='color:#00bfff;'><%= @item.brand_name %></span><% end %></p>
+		<p class='category_name'>Category / <%= link_to items_path(category_id: @item.category_id) do %><span style='color:#00bfff;'><%= @item.category.category_name %><% end %></p>
+		<p class='item_create_time'><%= @item.created_at.strftime('%Y/%m/%d/%H:%M') %></p>
+	</div>
+
+
 
 	<div class="item_comment_area">
 		<p class='item_comment_nickname_weight'><%= @user.nickname %>さんへのコメント</p>
@@ -31,18 +46,6 @@
 			</div>
 		<% end %>
 	</div>
-
-
-	<div class="item_detail_area">
-		<p class='item_name'><%= @item.item_name %></p>
-		<hr style='width:90%;'>
-		<p class='item_introduction'><%= @item.introduction %></p>
-		<hr style='width:90%;'>
-		<p class='brand_name'>SHOP / <%= link_to brand_path(@item.brand_id) do %><span id="item_brandid", style='color:#00bfff;'><%= @item.brand_name %></span><% end %></p>
-		<p class='category_name'>Category / <%= link_to items_path(category_id: @item.category_id) do %><span style='color:#00bfff;'><%= @item.category.category_name %><% end %></p>
-		<p class='item_create_time'><%= @item.created_at.strftime('%Y/%m/%d/%H:%M') %></p>
-	</div>
-
 
 	<% if user_signed_in? %>
 		<% if current_user.id == @item.user_id %>

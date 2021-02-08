@@ -52,7 +52,6 @@
 	border-radius:2px;
 }
 
-
 .item_user{
 	width:250px;
 	height:50px;
@@ -88,9 +87,8 @@
 
 ////*showページ*////
 .item_show_container{
-	width:100%;
-	height:auto;
-	padding-bottom:50px;
+	width:70%;
+	margin:15px auto 0;
 }
 
 .item_image{
@@ -111,19 +109,21 @@
 	color:black;
 }
 
+.item_reaction_wrapper{
+	height:708px;
+	width:528px;
+	float:left;
+}
 .item_reaction{
 	height:624px;
-	width:524px;
-	border:2px solid #c71585;
-	margin-top:15px;
-	margin-left:214px;
+	width:522px;
+	border:1px solid #c0c0c0;
 }
 
 .reaction_favorite{
 	height:80px;
-	width:524px;
-	border:2px solid #006400;
-	margin-left:214px;
+	width:522px;
+	border:1px solid #c0c0c0;
 	background-color:#FFFFFF;
 }
 
@@ -158,9 +158,10 @@
 	width:420px;
 	height:auto;
 	background-color:#FFFFFF;
-	position:absolute;
-	top:530px;
-	right:215px;
+	float:right;
+	margin:20px 0 ;
+	padding-bottom:3px;
+
 }
 
 .item_comment_area_into{
@@ -204,9 +205,6 @@
 	background-color:#FFFFFF;
 	border:1px solid #c0c0c0;
 	border-radius:2px;
-	position:absolute;
-	top:245px;
-	right:215px;
 	padding-bottom:20px;
 }
 
