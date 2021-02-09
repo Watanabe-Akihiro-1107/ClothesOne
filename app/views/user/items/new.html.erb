@@ -1,9 +1,3 @@
-<% if flash[:danger] %>
-	<div class="flash_error">
-		<%= flash[:danger] %>
-	</div>
-<% end %>
-
 <div class="new_item_text">
 	<h2>New Item</h2>
 </div>
@@ -13,9 +7,6 @@
 	<dl>
 		<dt><%= f.label :item_name %></dt>
 		<dd><%= f.text_field :item_name %></dd>
-		<br>
-		<dt><%= f.label :price %></dt>
-		<dd><%= f.text_field :price %></dd>
 		<br>
 		<dt><%= f.label :introduction %></dt>
 		<dd><%= f.text_area :introduction %></dd>
