@@ -47,7 +47,7 @@ class User::ItemsController < ApplicationController
     end
 
     if @item.save
-      flash[:notice] = "登録が完了しました。"
+      flash[:notice] = "投稿しました"
       redirect_to items_path
     else
         render :new

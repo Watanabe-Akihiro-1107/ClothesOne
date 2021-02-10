@@ -1,13 +1,13 @@
 <div class="item_index_main">
 	<%= render "user/items/sidebar" %>
 	<% if flash[:notice] %>
-		<div class="flash_notice">
-			<%= flash[:notice] %>
+		<div class="flash">
+			<p class='flash_message'><%= flash[:notice]%></p>
 		</div>
 	<% end %>
 	<%= render partial: 'user/items/item_index', locals: { items: @items} %>
 </div>
-<script src="flash.js"></script>
+
 
 
 
