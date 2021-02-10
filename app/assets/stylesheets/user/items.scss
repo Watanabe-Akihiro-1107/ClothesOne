@@ -86,6 +86,8 @@
 }
 
 ////*showページ*////
+
+
 .item_show_container{
 	width:70%;
 	margin:15px auto 0;
@@ -271,11 +273,26 @@
 
 
 ////*newページ*////
+.alert_detail{
+	color:black;
+	font-weight:bold;
+	list-style:none;
+	margin-right:20px;
+}
+.alert_warning{
+	text-align:center;
+	height:auto;
+	width:400px;
+	margin:0 auto;
+	background-color:#ffa07a;
+	margin-top:5px;
+}
 .new_item_form{
 	margin:0 auto;
 	width:400px;
 	background-color:#EEEEEE;
 	border-radius:0 0 10px 10px;
+	text-align:center;
 }
 
 .new_item_form{

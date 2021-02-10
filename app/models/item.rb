@@ -9,8 +9,8 @@ class Item < ApplicationRecord
   validates :brand_name, length: { in: 1..20 }
   validates :item_name, presence: true
   validates :image, presence: true
-  validates :category, presence: true
-  
+  # カテゴリーにバリデーションをかけていないのはかけていないのはアソシエーションがある為です。
+
 
 
 	attachment :image
