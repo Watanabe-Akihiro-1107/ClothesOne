@@ -50,8 +50,7 @@ class User::ItemsController < ApplicationController
       flash[:notice] = "登録が完了しました。"
       redirect_to items_path
     else
-      flash[:danger] = "登録に失敗しました"
-      redirect_to new_item_path
+        render :new
     end
   end
 

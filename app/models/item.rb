@@ -3,9 +3,16 @@ class Item < ApplicationRecord
 	belongs_to :category
 	belongs_to :brand, optional: true
 
-	validates :introduction, {length: {maximum: 200}}#紹介文のカラムに200文字以内の文字制限を設けています。
+  validates :introduction, presence: true
+	validates :introduction, length: {maximum: 200}#紹介文のカラムに200文字以内の文字制限を設けています。
   validates :brand_name, presence: true
-  validates :brand_name,    length: { in: 1..20 }
+  validates :brand_name, length: { in: 1..20 }
+  validates :item_name, presence: true
+  validates :image, presence: true
+  validates :category, presence: true
+  
+
+
 	attachment :image
 	has_many :item_comments,dependent: :destroy
 	has_many :favorites, dependent: :destroy

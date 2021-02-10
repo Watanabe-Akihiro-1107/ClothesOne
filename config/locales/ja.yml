@@ -1,0 +1,11 @@
+ja:
+  activerecord:
+    models:
+      item: アイテム
+    attributes:
+      item:
+        category: カテゴリー
+        introduction: 詳細
+        item_name: アイテム名
+        image: 画像
+        brand_name: ブランド名

@@ -22,4 +22,13 @@
 	</dl>
 		<%= f.submit "アイテムを投稿" ,class: "btn btn-success"%>
 	<% end %>
+	<% if @item.errors.any? %> 
+    <div class = "alert alert-warning">
+        <ul>
+            <% @item.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+            <% end %>
+        </ul>
+    </div>
+<% end %>
 </div>
