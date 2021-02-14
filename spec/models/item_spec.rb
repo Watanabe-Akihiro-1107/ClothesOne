@@ -1,16 +1,13 @@
 require 'rails_helper'
 
-RSpec.describe User, type: :model do
+RSpec.describe Item, type: :model do
   # describe：Userモデルをテスト対象にすることを示している。
   context "データが正しく保存される" do
   # データが正しく保存できることに関するテストであることを示している。
     before do
     # "before"はテスト前のデータを生成している
-      @user =User.new
-      @user.nickname = "アキヒロ"
-      @user.email ="test@test"
-      @user.password = "test1234"
-      @user.save
+    FactoryBot.create(:item)
+    @item.save
     end
     it "全て入力してあるので保存される" do
       expect(@user).to be_valid
@@ -20,15 +17,17 @@ RSpec.describe User, type: :model do
   end
   context "データが正しく保存されない" do
     before do
-      @user = User.new
-      @user.nickname = ""
-      @user.email = "test@test"
-      @user.password ="test1234"
-      @user.save
+      @item =Item.new
+      @item.user_id = 1
+      @item.item_name = "コンフォートシャツ"
+      @item.introduction = "オープンカラーでとても綺麗めです"
+      @item.brand_name =""
+      @item.category_id = 13
+      @item.save
     end
-    it "nicknameが入力されていないので保存されない" do
-      expect(@user).to be_invalid
-      expect(@user.errors[:nickname]).to include("は1文字以上に設定して下さい。")
+    it "brand_nameが入力されていないので保存されない" do
+      expect(@item).to be_invalid
+      expect(@item.errors[:brand_name]).to include("は1文字以上に設定して下さい。")
     end
   end
 end
