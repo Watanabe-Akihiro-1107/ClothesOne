@@ -6,12 +6,12 @@ RSpec.describe Item, type: :model do
   # データが正しく保存できることに関するテストであることを示している。
     before do
     # "before"はテスト前のデータを生成している
-    FactoryBot.create(:item)
-    @item.save
+    @item = FactoryBot.create(:item)
+    # インスタンス変数にFactorybotで作成したものを代入
     end
     it "全て入力してあるので保存される" do
-      expect(@user).to be_valid
-      # expect(@user).to：saveされているデータが入っている変数を示している。
+      expect(@item).to be_valid
+      # expect(@item).to：saveされているデータが入っている変数を示している。
       # be_valid：@userに正しくデータが保存されているかを確認する。
     end
   end

@@ -1,10 +1,11 @@
 FactoryBot.define do
   factory :item do
-  	@item =Item.new
-  	@item.user_id = 1
-  	@item.item_name = "コンフォートシャツ"
-  	@item.introduction = "オープンカラーでとても綺麗めです"
-  	@item.brand_name ="ユニクロ"
-  	@item.category_id = 13
+  	item_name {"コンフォートシャツ"}
+  	introduction {"オープンカラーでとても綺麗めです"}
+  	brand_name {"ユニクロ"}
+    image { Rack::Test::UploadedFile.new(File.join(Rails.root, 'spec/fixtures/test.jpg')) }
+
+    association :user
+    association :category
   end
 end
