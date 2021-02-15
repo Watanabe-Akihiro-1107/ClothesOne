@@ -1,7 +1,8 @@
 class User::BrandsController < ApplicationController
 
   def index
-  	@brands = Brand.select(:brand_name).distinct.order(brand_name: :asc)
+  	# @brands = Brand.select(:brand_name).distinct.order(brand_name: :asc)
+    @brands = Brand.where(brand_status: "false").select(:brand_name).distinct.order(brand_name: :asc)
   end
 
   def show
