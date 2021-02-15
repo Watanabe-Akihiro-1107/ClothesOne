@@ -2,6 +2,7 @@ ja:
   activerecord:
     models:
       item: アイテム
+      item_comment: コメント
     attributes:
       item:
         category: カテゴリー
@@ -9,3 +10,5 @@ ja:
         item_name: アイテム名
         image: 画像
         brand_name: ブランド名
+      item_comment:
+        comment: コメント
