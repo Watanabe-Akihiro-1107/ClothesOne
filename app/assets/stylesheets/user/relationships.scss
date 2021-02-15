@@ -3,8 +3,9 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .follow_index{
-	width:65%;
+	width:60%;
 	margin:60px auto 0;
+	padding-left:1.5%;
 }
 
 .follow_name{
@@ -48,8 +49,8 @@
 }
 
 .relationships_box{
-	height:120px;
-	width:430px;
+	height:100px;
+	width:400px;
 	float:left;
 	margin-right:15px;
 	margin-bottom:15px;
@@ -58,17 +59,17 @@
 }
 
 .relationship_img_box{
-	height:120px;
+	height:100px;
 	width:90px;
 	float:left;
-	padding-top:12px;
+	padding-top:3px;
 	padding-left:9px;
 }
 .relationship_user_detail{
-	height:120px;
-	width:248px;
+	height:100px;
+	width:218px;
 	float:right;
-	padding-top:22px;
+	padding-top:13px;
 }
 
 .user_follow_detail{
@@ -78,11 +79,11 @@
 }
 
 .relationship_follow_box{
-	height:120px;
+	height:100px;
 	width:90px;
 	float:right;
-	padding-top:22px;
-	padding-left:9px;
+	padding-top:13px;
+	padding-left:5px;
 }
 
 .btn-circle-border-blue {
