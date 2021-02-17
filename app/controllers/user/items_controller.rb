@@ -21,10 +21,10 @@ class User::ItemsController < ApplicationController
       elsif params[:category_id]['1']
         @items =Item.where(category_id:4..12).order(created_at: :desc)
       elsif params[:category_id]['3']
-      @items =Item.where(category_id:21..23).order(created_at: :desc)
+        @items =Item.where(category_id:21..23).order(created_at: :desc)
       else
-      @category = Category.find(params[:category_id])
-      @items = Item.where(category_id: @category.id).order(created_at: :desc)
+        @category = Category.find(params[:category_id])
+        @items = Item.where(category_id: @category.id).order(created_at: :desc)
       end
     elsif params[:brand_name]
       @brand = Brand.find_by(brand_name: params[:brand_name])
