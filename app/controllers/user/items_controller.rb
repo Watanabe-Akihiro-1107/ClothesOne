@@ -16,11 +16,12 @@ class User::ItemsController < ApplicationController
       @categories = Category.all
     # urlにcategory_id(params)がある場合
     if params[:category_id]
-      if params[:category_id]['2']
+      @category = Category.find(params[:category_id])
+      if @category.id == 2
         @items =Item.where(category_id:13..20).order(created_at: :desc)
-      elsif params[:category_id]['1']
+      elsif @category.id == 1
         @items =Item.where(category_id:4..12).order(created_at: :desc)
-      elsif params[:category_id]['3']
+      elsif @category.id == 3
         @items =Item.where(category_id:21..23).order(created_at: :desc)
       else
         @category = Category.find(params[:category_id])
@@ -70,7 +71,7 @@ class User::ItemsController < ApplicationController
   end
 
   def show
-    @categories = Category.where(id: 4..23)
+    @categories = Category.all
     @item = Item.find(params[:id])
     @item_comment=ItemComment.new
     @user = @item.user
