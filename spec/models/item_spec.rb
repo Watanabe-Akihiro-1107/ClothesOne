@@ -1,33 +1,55 @@
 require 'rails_helper'
 
 RSpec.describe Item, type: :model do
-  # describe：Userモデルをテスト対象にすることを示している。
-  context "データが正しく保存される" do
-  # データが正しく保存できることに関するテストであることを示している。
-    before do
-    # "before"はテスト前のデータを生成している
-    @item = FactoryBot.create(:item)
-    # インスタンス変数にFactorybotで作成したものを代入
+    describe "バリデーションのチェック" do
+      let(:item) { build(:item) }
+      let(:user) { build(:user) }
+      subject{ test_item.valid? }
+
+      context "item_nameカラムのチェック" do
+        let(:test_item) { item }
+        it "空欄でないこと" do
+          test_item.item_name = ""
+          is_expected.to eq false
+        end
+      end
+
+      context "introductionカラムのチェック" do
+        let(:test_item) { item }
+        it "空欄でないこと" do
+          test_item.introduction = ""
+          is_expected.to eq false
+        end
+
+        it "200文字以内であること" do
+          test_item.introduction = Faker::Lorem.characters(number:201)
+          is_expected.to eq false
+        end
+      end
+
+      context "brand_nameカラムのチェック" do
+      let(:test_item) { item }
+        it "空欄でないこと" do
+          test_item.brand_name = ""
+          is_expected.to eq false
+        end
+        it "20文字以内であること" do
+          test_item.brand_name = Faker::Lorem.characters(number:21)
+          is_expected.to eq false
+        end
+      end
     end
-    it "全て入力してあるので保存される" do
-      expect(@item).to be_valid
-      # expect(@item).to：saveされているデータが入っている変数を示している。
-      # be_valid：@userに正しくデータが保存されているかを確認する。
-    end
-  end
-  context "データが正しく保存されない" do
-    before do
-      @item =Item.new
-      @item.user_id = 1
-      @item.item_name = "コンフォートシャツ"
-      @item.introduction = "オープンカラーでとても綺麗めです"
-      @item.brand_name =""
-      @item.category_id = 13
-      @item.save
-    end
-    it "brand_nameが入力されていないので保存されない" do
-      expect(@item).to be_invalid
-      expect(@item.errors[:brand_name]).to include("は1文字以上に設定して下さい。")
-    end
-  end
+
+    describe "アソシエーションのチェック" do
+      context "Userモデルとの関係" do
+        it "1:Nになっている" do
+          expect(Item.reflect_on_association(:user).macro).to eq :belongs_to
+        end
+      end
+      context "Categoryモデルとの関係" do
+        it "1:Nになっている" do
+          expect(Item.reflect_on_association(:category).macro).to eq :belongs_to
+        end
+      end
+     end
 end

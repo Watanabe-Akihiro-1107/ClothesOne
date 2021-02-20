@@ -1,8 +1,8 @@
 FactoryBot.define do
   factory :item do
-  	item_name {"コンフォートシャツ"}
-  	introduction {"オープンカラーでとても綺麗めです"}
-  	brand_name {"ユニクロ"}
+  	item_name { Faker::Lorem.characters(number:10) }
+  	introduction { Faker::Lorem.characters(number:20) }
+  	brand_name { Faker::Lorem.characters(number:5) }
     image { Rack::Test::UploadedFile.new(File.join(Rails.root, 'spec/fixtures/test.jpg')) }
 
     association :user
