@@ -1,9 +1,17 @@
 require 'rails_helper'
 
 RSpec.describe Item, type: :model do
+    describe "正しく保存される" do
+      before do
+        @item = FactoryBot.create(:item)
+      end
+      it "全てのカラムに値が入っているので正しく保存される" do
+      expect(@item).to be_valid
+      end
+    end
+
     describe "バリデーションのチェック" do
       let(:item) { build(:item) }
-      let(:user) { build(:user) }
       subject{ test_item.valid? }
 
       context "item_nameカラムのチェック" do

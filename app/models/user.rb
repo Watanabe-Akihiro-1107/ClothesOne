@@ -18,7 +18,7 @@ class User < ApplicationRecord
   has_many :sns_credentials, dependent: :destroy
   attachment :profile_image
   validates :nickname, presence: true
-  validates :nickname,    length: { in: 1..20 }
+  validates :nickname,    length: { in: 3..20 }
 
 # user_status=falseでログイン不可にする
 def active_for_authentication?

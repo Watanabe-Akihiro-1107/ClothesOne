@@ -11,24 +11,26 @@ RSpec.describe User, type: :model do
     end
   end
 
-  context "データが正しく保存されない" do
-  	before do
-  		@user =User.new
-  		@user.nickname =""
-  		@user.email = ""
-  		@user.password = " "
-  	end
-  	it "passwordが入力されていないので保存されない" do
-  	  expect(@user).to be_invalid
-  	  expect(@user.errors[:password]).to include("が入力されていません。")
-  	end
-  	it "emailが入力されていないので保存されない" do
-  	  expect(@user).to be_invalid
-  	  expect(@user.errors[:email]).to include("が入力されていません。")
-  	end
-  	it "nicknameが入力されていないので保存されない" do
-  	  expect(@user).to be_invalid
-  	  expect(@user.errors[:nickname]).to include("が入力されていません。")
+  describe "バリデーションのチェック" do
+  	let(:user) {create(:user)}
+  	subject{ test_user.valid? }
+
+  	context "nicknameカラムのチェック" do
+  	let(:test_user) { user }
+  	 it "空欄でないこと" do
+  	 	test_user.nickname = ""
+  	 	is_expected.to eq false
+  	 end
+
+  	 it "3文字以上であること" do
+  	 	test_user.nickname = Faker::Lorem.characters(number:2)
+  	 	is_expected.to eq false
+  	 end
+
+  	 it "20文字以内であること" do
+  	 	test_user.nickname = Faker::Lorem.characters(number:21)
+  	 	is_expected.to eq false
+  	 end
   	end
   end
 end
