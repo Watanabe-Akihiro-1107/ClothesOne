@@ -47,13 +47,13 @@ class User::ItemsController < ApplicationController
   def create
     @item = Item.new(item_params)
     @item.user_id = current_user.id
-    if @item.save
-      brand = Brand.new
-      brand.brand_name = params[:item][:brand_name]
-      brand.save
-      @item.brand_name =params[:item][:brand_name]
-      @item.brand_id = brand.id
-    end
+    # if @item.save
+    #   brand = Brand.new
+    #   brand.brand_name = params[:item][:brand_name]
+    #   brand.save
+    #   @item.brand_name =params[:item][:brand_name]
+    #   @item.brand_id = brand.id
+    # end
 
     if @item.save
       flash[:notice] = "投稿しました"
