@@ -22,7 +22,17 @@
 }
 
 .brand_index_main{
+	width:80%;
+	margin:0 auto ;
 	margin-top:60px;
 	margin-bottom:15px;
-	border:1px solid black;
+	border:1px solid #a9a9a9;
+	border-radius:2px 2px 0 0 ;
+	background-color:#FFFFFF;
+}
+
+.brand_name_text{
+	color:#808080;
+	margin-top:3px;
+	margin-left:5px;
 }

@@ -1,4 +1,4 @@
-<div class ="brand_index_main">
+
   <%= hidden_field_tag :brand_name, @brandname, id: "brand-name" %>
 
 
@@ -63,7 +63,7 @@ function createMarker(place) {
   });
 }
 </script>
-  <p>近くの<%= @brandname %>一覧</p>
-<div id="gmap"></div>
-
+<div class ="brand_index_main">
+    <p class="brand_name_text">近くの<%= @brandname %>一覧</p>
+    <div id="gmap"></div>
 </div>

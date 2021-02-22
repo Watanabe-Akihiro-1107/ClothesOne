@@ -6,10 +6,10 @@
 		</div>
 	<% end %>
 	<%= render partial: 'user/items/item_index', locals: { items: @items} %>
-	<% if params[:brand_name]%>
-		<%= render "user/items/googlemaps"%>
-	<% end %>
 </div>
+<% if params[:brand_name]%>
+	<%= render "user/items/googlemaps"%>
+<% end %>
 
 
 
