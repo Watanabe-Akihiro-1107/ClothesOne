@@ -9,9 +9,9 @@
 			<tr>
 				<td><%= user.nickname %></td>
 				<% if user.user_status == true %>
-					<td>有効</td>
+					<td class = "status_btn_true">有効</td>
 				<% else %>
-					<td>無効</td>
+					<td class = "status_btn_false">無効</td>
 				<% end %>
 				<td>
 					<%= link_to "編集", edit_admin_user_path(user.id) %>

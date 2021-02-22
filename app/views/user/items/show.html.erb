@@ -24,7 +24,9 @@
 		<hr style='width:90%;'>
 		<p class='item_introduction'><%= @item.introduction %></p>
 		<hr style='width:90%;'>
+		<% if @item.brand_name != ""%>
 		<p class='brand_name'>SHOP / <%= link_to brand_path(@item.brand_id) do %><span id="item_brandid", style='color:#00bfff;'><%= @item.brand_name %></span><% end %></p>
+		<% end %>
 		<p class='category_name'>Category / <%= link_to items_path(category_id: @item.category_id) do %><span style='color:#00bfff;'><%= @item.category.category_name %><% end %></p>
 		<p class='item_create_time'><%= @item.created_at.strftime('%Y/%m/%d/%H:%M') %></p>
 	</div>

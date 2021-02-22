@@ -22,5 +22,21 @@ RSpec.describe Admin ,type: :model do
 	 			is_expected.to be false
 	 		end
 	 	end
+	 	context "emailカラムのテスト" do
+	 	before do
+	 		@admin = FactoryBot.build(:admin)
+	 	end
+	 		it "空欄でないこと" do
+	 			admin.email = ""
+	 			is_expected.to be false
+	 		end
+	 		it "同じメールアドレスで登録できないこと" do
+	 			@admin.save
+	 			another_admin = FactoryBot.build(:admin)
+	 			another_admin.email = @admin.email
+	 			another_admin.valid?
+	 			expect(another_admin.errors.full_messages).to include("Emailは既に使用されています。")
+	 		end
+	 	end
  	end
 end

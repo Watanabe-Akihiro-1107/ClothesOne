@@ -37,9 +37,9 @@ RSpec.describe Item, type: :model do
 
       context "brand_nameカラムのチェック" do
       let(:test_item) { item }
-        it "空欄でないこと" do
+        it "空欄でも登録できること" do
           test_item.brand_name = ""
-          is_expected.to eq false
+          is_expected.to eq true
         end
         it "20文字以内であること" do
           test_item.brand_name = Faker::Lorem.characters(number:21)

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_09_152832) do
+ActiveRecord::Schema.define(version: 2021_02_21_151634) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(version: 2021_02_09_152832) do
   end
 
   create_table "brands", force: :cascade do |t|
-    t.string "brand_name", null: false
+    t.string "brand_name"
     t.boolean "brand_status", default: true, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -74,7 +74,7 @@ ActiveRecord::Schema.define(version: 2021_02_09_152832) do
     t.datetime "updated_at", null: false
     t.string "item_name", null: false
     t.string "brand"
-    t.string "brand_name", null: false
+    t.string "brand_name"
   end
 
   create_table "notifications", force: :cascade do |t|

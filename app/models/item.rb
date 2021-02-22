@@ -5,8 +5,7 @@ class Item < ApplicationRecord
 
   validates :introduction, presence: true
 	validates :introduction, length: {maximum: 200}#紹介文のカラムに200文字以内の文字制限を設けています。
-  validates :brand_name, presence: true
-  validates :brand_name, length: { in: 1..20 }
+  validates :brand_name, length: { maximum: 20 }
   validates :item_name, presence: true
   validates :image, presence: true
   # カテゴリーにバリデーションをかけていないのはかけていないのはアソシエーションがある為です。
