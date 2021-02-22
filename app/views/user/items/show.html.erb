@@ -26,7 +26,7 @@
 		<hr style='width:90%;'>
 		<% if @item.brand_name != ""%>
 			<% if Brand.where(brand_name: @item.brand_name).exists? %>
-				<p class='brand_name'>SHOP / <%= link_to brand_path(@item.brand_id) do %><span id="item_brandid", style='color:#00bfff;'><%= @item.brand_name %></span><% end %></p>
+				<p class='brand_name'>SHOP / <%= link_to items_path(brand_name: @item.brand_name) do %><span id="item_brandid", style='color:#00bfff;'><%= @item.brand_name %></span><% end %></p>
 			<% else %>
 				<p class ='brand_name'>SHOP / <%= @item.brand_name %></p>
 			<% end %>

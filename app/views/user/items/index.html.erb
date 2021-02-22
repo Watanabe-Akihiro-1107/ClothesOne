@@ -1,4 +1,4 @@
-<div class="item_index_main">
+<div class="item_index_main clearfix">
 	<%= render "user/items/sidebar" %>
 	<% if flash[:notice] %>
 		<div class="flash">
@@ -6,6 +6,9 @@
 		</div>
 	<% end %>
 	<%= render partial: 'user/items/item_index', locals: { items: @items} %>
+	<% if params[:brand_name]%>
+		<%= render "user/items/googlemaps"%>
+	<% end %>
 </div>
 
 

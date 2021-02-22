@@ -5,11 +5,6 @@ class User::BrandsController < ApplicationController
     @brands = Brand.where(brand_status: "false").select(:brand_name).distinct.order(brand_name: :asc)
   end
 
-  def show
-    brand = Brand.find(params[:id])
-    @brand = brand.brand_name
-  end
-
   def create
     @item =Item.new
     @item.save

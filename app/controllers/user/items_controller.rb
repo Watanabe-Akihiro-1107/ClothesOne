@@ -30,6 +30,7 @@ class User::ItemsController < ApplicationController
     elsif params[:brand_name]
       @brand = Brand.find_by(brand_name: params[:brand_name])
       @items = Item.where(brand_name: @brand.brand_name).order(created_at: :desc)
+      @brandname = params[:brand_name]
     else
       # 投稿すべてを取得
       @items = Item.all.order(created_at: :desc).order(created_at: :desc)
@@ -47,14 +48,6 @@ class User::ItemsController < ApplicationController
   def create
     @item = Item.new(item_params)
     @item.user_id = current_user.id
-    # if @item.save
-    #   brand = Brand.new
-    #   brand.brand_name = params[:item][:brand_name]
-    #   brand.save
-    #   @item.brand_name =params[:item][:brand_name]
-    #   @item.brand_id = brand.id
-    # end
-
     if @item.save
       flash[:notice] = "投稿しました"
       redirect_to items_path

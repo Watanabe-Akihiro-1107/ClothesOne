@@ -1,6 +1,5 @@
 <div class ="brand_index_main">
-  <h1>近くの<%= @brand %>一覧</h1>
-  <%= hidden_field_tag :brand_name, @brand, id: "brand-name" %>
+  <%= hidden_field_tag :brand_name, @brandname, id: "brand-name" %>
 
 
 <script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV["API_KEY"] %>&callback=initMap&libraries=places" async></script>
@@ -64,6 +63,7 @@ function createMarker(place) {
   });
 }
 </script>
+  <p>近くの<%= @brandname %>一覧</p>
 <div id="gmap"></div>
 
 </div>
