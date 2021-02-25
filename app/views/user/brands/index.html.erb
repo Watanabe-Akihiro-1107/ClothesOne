@@ -1,5 +1,6 @@
+<div class="brand_container">
 <div class="brand_index">
-	<h1>ブランドから探す</h1>
+	<p class= "brand_headtext">ブランドから探す</h1>
 	<% i = 1 %>
 	<% @brands.each do |brand|%>
 		<div class ="brand_detail">
@@ -7,8 +8,9 @@
 				<h3 class="brand_ranking_number"><%= "#{i}" %></h3>
 			</div>
     		<%= link_to brand.brand_name, items_path(brand_name: brand.brand_name),class: "brands_btn" %>
-    		<p class="brand_item"><%= Item.where(brand_name:brand.brand_name).count %></p>
+    		<p class="brand_items_count"><%= Item.where(brand_name:brand.brand_name).count %>アイテム</p>
     	</div>
     	<% i += 1%>
     <% end %>
+</div>
 </div>

@@ -1,8 +1,8 @@
 class User::BrandsController < ApplicationController
 
   def index
-  	# @brands = Brand.select(:brand_name).distinct.order(brand_name: :asc)
-    @brands = Brand.all
+  	@brands = Brand.select(:brand_name).distinct.order(brand_name: :asc)
+
   end
 
   def create

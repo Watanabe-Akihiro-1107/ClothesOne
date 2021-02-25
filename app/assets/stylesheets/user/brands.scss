@@ -2,6 +2,10 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+
+.brand_container{
+	padding-left:20px;
+}
 .brand_index{
 	width:65%;
 	margin: 60px auto 0 ;
@@ -13,8 +17,10 @@
 	background-size: 14px 14px;
 }
 
-.brand_index h1{
+.brand_headtext{
 	text-align:center;
+	font-weight:bold;
+	font-size:20px;
 }
 
 .brand_index_main{
@@ -31,6 +37,7 @@
 	color:#808080;
 	margin-top:3px;
 	margin-left:5px;
+	font-weight:bold;
 }
 
 .brand_detail{
@@ -40,7 +47,7 @@
 	margin-bottom:15px;
 	padding-left:10px;
 	padding-top:10px;
-	border:#dcdcdc 1px solid;
+	border:#dcdcdc 2px solid;
 	background-color:#FFFFFF;
 	float:left;
 }
@@ -59,4 +66,5 @@
 .brand_items_count{
 	margin-top:5px;
 	font-weight:bold;
+	font-size:18px;
 }

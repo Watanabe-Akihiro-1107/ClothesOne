@@ -41,7 +41,7 @@
 }
 
 .user_show_image{
-  margin-left:10px;
+  margin-left:20px;
 }
 
 
@@ -73,6 +73,7 @@
 .user_nickname{
   float:left;
   font-size:25px;
+  font-weight:bold;
   padding-top:15px;
   padding-left:15px;
   position:absolute;
@@ -142,9 +143,9 @@
 }
 
 .user_editbtn{
-  position:absolute;
-  top:90px;
-  left:320px;
+  position:relative;
+  top:30px;
+  left:30px;
 }
 
 .user_detail_btn{
