@@ -1,6 +1,8 @@
 <div class="brand_index">
 	<h1>ブランドから探す</h1>
 	<% @brands.each do |brand|%>
-    	<%= link_to brand.brand_name, items_path(brand_name: brand.brand_name),class: "brands_btn" %>
+		<div class ="brand_detail">
+    		<%= link_to brand.brand_name, items_path(brand_name: brand.brand_name),class: "brands_btn" %>
+    	</div>
     <% end %>
 </div>
