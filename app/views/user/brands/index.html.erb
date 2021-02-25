@@ -1,8 +1,14 @@
 <div class="brand_index">
 	<h1>ブランドから探す</h1>
+	<% i = 1 %>
 	<% @brands.each do |brand|%>
 		<div class ="brand_detail">
+			<div class="brand_ranking">
+				<h3 class="brand_ranking_number"><%= "#{i}" %></h3>
+			</div>
     		<%= link_to brand.brand_name, items_path(brand_name: brand.brand_name),class: "brands_btn" %>
+    		<p class="brand_item"><%= Item.where(brand_name:brand.brand_name).count %></p>
     	</div>
+    	<% i += 1%>
     <% end %>
 </div>

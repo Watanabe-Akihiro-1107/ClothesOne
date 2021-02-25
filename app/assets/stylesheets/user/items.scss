@@ -81,8 +81,9 @@
 }
 
 .item_user_image{
-	margin-left:5px;
-	line-height:50px;
+	position:relative;
+	top:-5px;
+	left:5px;
 }
 
 ////*showページ*////
@@ -163,6 +164,7 @@
 	float:right;
 	margin:20px 0 ;
 	padding-bottom:3px;
+	padding-left:20px;
 
 }
 

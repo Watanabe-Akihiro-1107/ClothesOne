@@ -9,12 +9,8 @@
 }
 
 .brands_btn{
-	font-size:25px;
-	margin-right:5px;
-	color:#000000;
-	background-color: #00bfff;
+	font-size:20px;
 	background-size: 14px 14px;
-	border-radius:2px;
 }
 
 .brand_index h1{
@@ -28,7 +24,7 @@
 	margin-bottom:15px;
 	border:1px solid #a9a9a9;
 	border-radius:2px 2px 0 0 ;
-	background-color:#FFFFFF;
+	background-color:#f5f5f5;
 }
 
 .brand_name_text{
@@ -38,11 +34,29 @@
 }
 
 .brand_detail{
-	height:100px;
+	height:80px;
 	width:445px;
 	margin-right:15px;
 	margin-bottom:15px;
+	padding-left:10px;
+	padding-top:10px;
 	border:#dcdcdc 1px solid;
 	background-color:#FFFFFF;
 	float:left;
+}
+
+.brand_ranking{
+	height:65px;
+	width:30px;
+	float:left;
+
+
+}
+.brand_ranking_number{
+	display:inline;
+}
+
+.brand_items_count{
+	margin-top:5px;
+	font-weight:bold;
 }

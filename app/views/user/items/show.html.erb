@@ -48,7 +48,7 @@
 				<%= attachment_image_tag current_user, :profile_image, :fill, 40, 40, class: 'comment_form_profile_image'%>
 				<%= form_with model:[@item, @item_comment] do |f| %>
 				<!-- form_withはデフォルトで非同期通信になるので"remote:true"がいりません！ -->
-				<%= f.text_area :comment, :size=>'43x2',placeholder: "コメントを書く",class: "item_comment_content"%>
+				<%= f.text_area :comment, :size=>'39x2',placeholder: "コメントを書く",class: "item_comment_content"%>
 				<%= f.submit "送信",class: "item_comment_btn"%>
 				<% end %>
 			</div>
