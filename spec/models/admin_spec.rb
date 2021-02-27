@@ -1,5 +1,14 @@
 require "rails_helper"
 RSpec.describe Admin ,type: :model do
+
+	describe "データベースへの接続のテスト" do
+		it "指定のデータベースに接続していること" do
+			expect(described_class.connection_config[:database]).to match(/test.sqlite3/)
+			expect(described_class.connection_config[:database]).not_to match(/development.sqlite3/)
+		end
+	end
+
+	describe "保存されるかのテスト" do
 	context "正しく保存される" do
 		before do
 			@admin = FactoryBot.create(:admin)
@@ -7,6 +16,7 @@ RSpec.describe Admin ,type: :model do
 		it "全て入力されているので正しく保存される" do
 			expect(@admin).to be_valid
 		end
+ 	end
  	end
 
  	describe "バリデーションのテスト" do
