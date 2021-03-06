@@ -7,10 +7,8 @@ RSpec.describe Notification, type: :model do
 		before do
 			@notification = Notification.new
 		end
-		context "投稿にいいねがされたとき正しく保存される" do
-			it "空欄でないこと" do
+		it "正しく保存される" do
 			expect(@notification).to be_valid
-			end
 		end
 	end
 end

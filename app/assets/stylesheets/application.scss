@@ -20,7 +20,7 @@
 
 body {
 font-family: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ W3", "Hiragino Kaku Gothic", "Lucida Grande", "メイリオ", Verdana, "ＭＳ Ｐゴシック", sans-serif;
-background-color:#f5f5f5;
+background-color:#FFFFFF;
 
 }
 
@@ -36,7 +36,7 @@ background-color:#f5f5f5;
 	float:left;
 	font-size:25px;
 	line-height:50px;
-	color:#00bfff;
+	color:white;
 }
 
 
@@ -44,17 +44,16 @@ background-color:#f5f5f5;
 	width:55%;
 }
 
-.navbar-right{
+#open_nav{
 	float:right;
-	line-height:50px;
-	margin:10px, 0, 15px, 0;
-	list-style:none;
+	margin-right:70px;
+	margin-top:10px;
 }
 
 header{
-	background-color:#FFFFFF;
-  	position:fixed;
-  	top:0;
+	background-color:#00bfff;
+	position:fixed;
+	top:0;
   	width:100%;
   	height:50px;
   	z-index:1000;
@@ -67,7 +66,7 @@ footer{
 	bottom:0;
 	width:100%;
 	height:100px;
-	background-color:#FFFFFF;
+	background-color:#00bfff;
 	color:#808080;
 	text-align:center;
 	box-shadow: 0px -10px 10px -7px rgba(0,0,0,0.5);
@@ -130,3 +129,20 @@ footer{
   border-radius: 15px;    /*角を丸くする*/
 }
 
+#menu{
+background-color:#00bfff;
+width:270px;
+height:100%;
+position:fixed;
+top:0;
+right:-270px;
+}
+
+/*ドロワーが開かれた時のスタイル*/
+.show{
+	transform:translate3d(-270px,0,0);
+}
+
+#container{
+	transition:transform 0.3s;
+}

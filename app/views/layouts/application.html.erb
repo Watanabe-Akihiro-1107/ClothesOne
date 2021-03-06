@@ -20,9 +20,9 @@
   </head>
 
   <body>
-    <div class='footer_fixed clearfix'>
+    <div class='footer_fixed clearfix' id="container">
       <header>
-        <div class="container">
+
           <nav class="nav navbar-nav navbar-left">
                 <span class="clothesone">
                   <%= link_to root_path,class:"clothesone" do %>
@@ -36,71 +36,9 @@
                   <% end %>
                 </span>
           </nav>
-          <ul class="nav navbar-nav navbar-right">
-            <% if user_signed_in? %>
-                <li>
-                  <%= link_to user_path(current_user.id), class:"btn-detail" do %>
-                  <%= image_tag("mypage.png")%>MY PAGE<% end %>
-                </li>
-                <li>
-                  <%= link_to new_item_path, class:"btn-detail" do %>
-                  <%= image_tag("new.png")%>POST<% end %>
-                </li>
-                <li>
-                  <%= link_to items_path, class:"btn-detail" do %>
-                  <%= image_tag("jacket.png")%>ITEM<% end %>
-                </li>
-                <li>
-                  <%= link_to "BRANDS", brands_path, class:"btn-detail"%>
-                </li>
-                <% if unchecked_notifications.any? %>
-                  <li>
-                    <%= link_to notifications_path, class:"btn-detail" do %>
-                    <i class="fa fa-circle" style="color: gold;"></i>NOTICE<% end %>
-                  </li>
-                <% else %>
-                  <li>
-                    <%= link_to notifications_path, class:"btn-detail" do %>NOTICE<% end %>
-                  </li>
-                <% end %>
-                <li>
-                  <%= link_to destroy_user_session_path, method: :delete, class:"btn-detail" do %>
-                  <%= image_tag("exit.png")%>LOGOUT<% end %>
-                </li>
-            <% elsif admin_signed_in? %>
-                <li>
-                  <%= link_to "ユーザー一覧", admin_users_path, class:"btn-detail" %>
-                </li>
-                <li>
-                  <%= link_to "ジャンル一覧", admin_categories_path, class:"btn-detail" %>
-                </li>
-                <li>
-                  <%= link_to "ブランド一覧", admin_brands_path, class:"btn-detail" %>
-                </li>
-                <li>
-                  <%= link_to "ログアウト", destroy_admin_session_path,method: :delete, class:"btn-detail" %>
-                </li>
-            <% else %>
-                <li>
-                  <%= link_to about_path, class:"btn-detail" do %>
-                  <%= image_tag("question.png")%>ABOUT<% end %>
-                </li>
-                <li>
-                  <%= link_to items_path, class:"btn-detail" do %>
-                  <%= image_tag("jacket.png")%>ITEM<% end %>
-                </li>
-                <li>
-                  <%= link_to new_user_session_path, class:"btn-detail" do %>
-                  <%= image_tag("exit.png")%>SIGNIN<% end %>
-                </li>
-                <li>
-                  <%= link_to new_user_registration_path, class:"btn-detail" do %>
-                  <%= image_tag("signup.png")%>SIGNUP<% end %>
-                </li>
-            <% end %>
-          </ul>
-       </div>
+          <div id="open_nav"><%= image_tag("menu.png")%></div>
 
+      <%= render "layouts/menu"%>
       </header>
       <%= yield %>
       <footer>
@@ -108,6 +46,14 @@
         <p><%= link_to user_inquiries_new_path,class: "footer_mail_txt" do %><%= image_tag("mail.png")%>お問い合わせ<% end %></p>
       </footer>
     </div>
+    <script>
+    'use strict'
+    $(document).ready(function(){
+      $('#open_nav').on('click',function(){
+        $('#container').toggleClass('show');
+      });
+        });
+    </script>
   </body>
 </html>
 

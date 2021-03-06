@@ -84,4 +84,5 @@ gem 'omniauth-google-oauth2'
 gem 'omniauth'
 gem 'rails-i18n'
 gem 'faker'
+gem 'rails-controller-testing'
 
