@@ -1,3 +1,9 @@
+<div class="item-genre-list">
+	<% @categories.each do |category|%>
+		<%= link_to category.category_name, items_path(category_id: category.id), class: "category_btn" %>
+	<% end %>
+</div>
+
 <div class="item_index_cusion">
 	<% if @items.count > 0 %>
 		<% @items.each do |item|%>

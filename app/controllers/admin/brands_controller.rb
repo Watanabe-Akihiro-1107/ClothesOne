@@ -31,6 +31,6 @@ class Admin::BrandsController < ApplicationController
 
   private
   def brand_params
-    params.require(:brand).permit(:brand_name, :brand_status)
+    params.require(:brand).permit(:brand_name, :brand_status,:tag_list)
   end
 end

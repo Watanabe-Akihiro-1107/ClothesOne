@@ -42,14 +42,18 @@ background-color:#FFFFFF;
 
 .navbar-left{
 	width:55%;
+	margin-left:10%;
 }
 
 #open_nav{
 	float:right;
-	margin-right:70px;
+	margin-right:10%;
 	margin-top:10px;
 }
 
+#open_nav:hover{
+	opacity:0.5;
+}
 header{
 	background-color:#00bfff;
 	position:fixed;

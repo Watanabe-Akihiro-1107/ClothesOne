@@ -85,4 +85,4 @@ gem 'omniauth'
 gem 'rails-i18n'
 gem 'faker'
 gem 'rails-controller-testing'
-
+gem 'acts-as-taggable-on', '~> 6.0'
