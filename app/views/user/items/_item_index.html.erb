@@ -4,6 +4,9 @@
 	<% end %>
 </div>
 
+<% if params[:search]%>
+	<h3>#<%= params[:search] %></h3>
+<% end %>
 <div class="item_index_cusion">
 	<% if @items.count > 0 %>
 		<% @items.each do |item|%>

@@ -1,10 +1,9 @@
 <div class = "item_index_main">
 		<div class ="item_index">
 			<%if @items.exists? %>
-				<h1>#<%= params[:search] %></h1>
-			<%= render partial: 'user/items/item_index', locals: { items: @items} %>
+				<%= render partial: 'user/items/item_index', locals: { items: @items} %>
 			<% else %>
-				<h1 class="nothing_message">まだ<%= params[:search] %>の投稿はありません。</h1>
+				<h3 class="nothing_message">まだ<%= params[:search] %>に関する投稿はありません。</h3>
 			<% end %>
 		</div>
 </div>
