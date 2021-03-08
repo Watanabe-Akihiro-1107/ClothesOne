@@ -1,65 +1,57 @@
 <div id ="menu">
-  <ul>
+    <p>MENU</p>
     <% if user_signed_in? %>
-        <li>
+
           <%= link_to user_path(current_user.id), class:"btn-detail" do %>
-          <%= image_tag("mypage.png")%>MY PAGE<% end %>
-        </li>
-        <li>
+          <span><%= image_tag("mypage.png")%>MY PAGE</span><% end %>
+
+
           <%= link_to new_item_path, class:"btn-detail" do %>
-          <%= image_tag("new.png")%>POST<% end %>
-        </li>
-        <li>
+          <span><%= image_tag("new.png")%>POST</span><% end %>
+
           <%= link_to items_path, class:"btn-detail" do %>
-          <%= image_tag("jacket.png")%>ITEM<% end %>
-        </li>
-        <li>
-          <%= link_to "BRANDS", brands_path, class:"btn-detail"%>
-        </li>
+          <span><%= image_tag("jacket.png")%>ITEM</span><% end %>
+
+          <%= link_to brands_path, class:"btn-detail" do %><span>BRANDS</span><% end %>
+
+
         <% if unchecked_notifications.any? %>
-          <li>
+
             <%= link_to notifications_path, class:"btn-detail" do %>
-            <i class="fa fa-circle" style="color: gold;"></i>NOTICE<% end %>
-          </li>
+            <span><%= image_tag("notification.png")%>NOTICE<i class="fa fa-circle" style="color: gold;"></i><span><% end %>
+
         <% else %>
-          <li>
-            <%= link_to notifications_path, class:"btn-detail" do %>NOTICE<% end %>
-          </li>
+
+            <%= link_to notifications_path, class:"btn-detail" do %><span><%= image_tag("notification.png")%>NOTICE</span><% end %>
+
         <% end %>
-        <li>
+
           <%= link_to destroy_user_session_path, method: :delete, class:"btn-detail" do %>
-          <%= image_tag("exit.png")%>LOGOUT<% end %>
-        </li>
+          <span><%= image_tag("exit.png")%>LOGOUT</span><% end %>
+
     <% elsif admin_signed_in? %>
-        <li>
-          <%= link_to "ユーザー一覧", admin_users_path, class:"btn-detail" %>
-        </li>
-        <li>
-          <%= link_to "ジャンル一覧", admin_categories_path, class:"btn-detail" %>
-        </li>
-        <li>
-          <%= link_to "ブランド一覧", admin_brands_path, class:"btn-detail" %>
-        </li>
-        <li>
-          <%= link_to "ログアウト", destroy_admin_session_path,method: :delete, class:"btn-detail" %>
-        </li>
+
+          <%= link_to admin_users_path, class:"btn-detail" do %><span>ユーザー一覧</span><% end %>
+
+          <%= link_to admin_categories_path, class:"btn-detail" do %><span>カテゴリー一覧</span><% end %>
+
+          <%= link_to admin_brands_path, class:"btn-detail" do %><span>ブランド一覧</span><% end %>
+
+          <%= link_to destroy_admin_session_path,method: :delete, class:"btn-detail" do %><span>ログアウト</span><% end %>
+
     <% else %>
-        <li>
+
           <%= link_to about_path, class:"btn-detail" do %>
-          <%= image_tag("question.png")%>ABOUT<% end %>
-        </li>
-        <li>
+          <span><%= image_tag("question.png")%>ABOUT</span><% end %>
+
           <%= link_to items_path, class:"btn-detail" do %>
-          <%= image_tag("jacket.png")%>ITEM<% end %>
-        </li>
-        <li>
+          <span><%= image_tag("jacket.png")%>ITEM</span><% end %>
+
           <%= link_to new_user_session_path, class:"btn-detail" do %>
-          <%= image_tag("exit.png")%>SIGNIN<% end %>
-        </li>
-        <li>
+          <span><%= image_tag("exit.png")%>SIGNIN<span><% end %>
+
           <%= link_to new_user_registration_path, class:"btn-detail" do %>
-          <%= image_tag("signup.png")%>SIGNUP<% end %>
-        </li>
+          <span><%= image_tag("signup.png")%>SIGNUP</span><% end %>
+
     <% end %>
-  </ul>
 </div>

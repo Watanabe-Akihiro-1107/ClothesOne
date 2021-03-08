@@ -397,64 +397,17 @@
 	background-color:#32cd32;
 }
 
-////*サイドバー*////
-
-.main_sidebar{
-	width:300px;
-	position:fixed;
-	height:100%;
-	top:0;
-}
-.sidebar{
-  z-index: 1000;
-  cursor: pointer;
-  position: fixed;
-  top: 0;
-  left: 0px;
-  background-color: #DDDDDD;
-  margin-left:50px;
-  width: 280px;
-  font-size: 16px;
-  text-align:center;
-  height:100%;
-  float:left;
-  margin-left:-250px;
-  }
-
-
-.main_sidebar{
-	text-align:center;
-	width:230px;
-	color:#FFFFFF;
-	padding-top:50px;
-	padding-left:60px;
-}
-
-.left_sidebar{
-	z-index:1000;
-	top:0px;
-	width:30px;
-	background-color:#000000;
-	height:100%;
-	padding-top:100px;
-	float:left;
-}
-
-
-.right_sidebar{
-	background-color: #DDDDDD;
-	z-index:1000;
-	top:0px;
-	width:30px;
-	height:100%;
-	padding-top:100px;
-	float:right;
-	line-height:540px;
-	border-right:1px solid #808080;
-}
-
-.category_detail{
-	color:#FFFFFF;
+#menu span{
+	font-size:30px;
 	display:block;
-	padding-top:10px;
+	color:white;
+}
+#menu{
+	padding-left:10px;
+	border-left:2px solid white;
+}
+
+#menu p{
+	font-size:50px;
+	color:white;
 }
