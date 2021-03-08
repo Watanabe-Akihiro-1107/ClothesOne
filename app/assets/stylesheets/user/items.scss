@@ -48,11 +48,15 @@
 	height:352px;
 	width:252px;
 	float:left;
-	margin-right:30px;
+	margin-right:44px;
 	margin-bottom:40px;
 	border:1px solid #c0c0c0;
 	border-radius:2px;
 }
+
+.item_mainbox:nth-of-type(4n){
+	margin-right:0;
+	}
 
 .item_user{
 	width:250px;
