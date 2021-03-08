@@ -1,6 +1,6 @@
 <%= render "user/users/profile" %>
-<div class = "item_index_main">
-	<div class="item_index">
+<div class="item_index_main">
+	<div class="item_index_cusion">
 		<% if @items.count > 0 %>
 			<% @items.each do |item|%>
 				<div class="item_mainbox">
@@ -20,7 +20,7 @@
 				</div>
 			<% end %>
 		<% else %>
-			<div class="item_index_text nothing_message"><h1>まだアイテムはありません</h1></div>
+			<h2>まだアイテムはありません</h2>
 		<% end %>
 	</div>
 </div>

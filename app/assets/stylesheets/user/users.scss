@@ -62,7 +62,7 @@
   background-size: 10px 10px;
 }
 .user_detail{
-  width:70%;
+  width:80%;
   margin:0 auto;
   height:100px;
   background-color: #FFFFFF;
@@ -98,7 +98,7 @@
 }
 
 .user_itemlist{
-  width:70%;
+  width:80%;
   height:52px;
   margin:0 auto ;
   background-color:#FFFFFF;
@@ -142,6 +142,14 @@
   text-align:center;
 }
 
+.user_itemlist_right:nth-of-type(2n){
+  border-right:none;
+  }
+
+.user_itemlist_left:nth-of-type(2n){
+  border-left:none;
+  }
+
 .user_editbtn{
   position:relative;
   top:30px;
@@ -181,6 +189,7 @@
   display:inline;
   color:#000000;
 }
+
 
 ///*editページ*///
 
