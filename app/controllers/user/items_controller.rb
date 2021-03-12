@@ -17,37 +17,30 @@ class User::ItemsController < ApplicationController
     # urlにcategory_id(params)がある場合
     if params[:category_id]
       @category = Category.find(params[:category_id])
-      if @category.id == 2
-        @items =Item.where(category_id:13..20).order(created_at: :desc)
-        @categories = Category.where(id:13..20)
-      elsif @category.id == 1
-        @items =Item.where(category_id:4..12).order(created_at: :desc)
-        @categories = Category.where(id:4..12)
-      elsif @category.id == 3
-        @items =Item.where(category_id:21..23).order(created_at: :desc)
-        @categories = Category.where(id:21..23)
-      elsif
-        @category.id == 13 || @category.id == 14 || @category.id == 15 ||
-        @category.id == 16 || @category.id == 17 || @category.id == 18 ||
-        @category.id == 19 || @category.id == 20 || @category.id == 21 ||
-        @category.id == 22 || @category.id == 23 ||
-        @items = Item.where(category_id: @category.id).order(created_at: :desc)
-        @categories = Category.where(id:13..20)
-        @items =Item.where(category_id: @category.id).order(created_at: :desc)
-      elsif
-        @category.id == 4 || @category.id == 5 || @category.id == 6 ||
-        @category.id == 7 || @category.id == 8 || @category.id == 9 ||
-        @category.id == 10 || @category.id == 11 || @category.id == 12
-        @items = Item.where(category_id: @category.id).order(created_at: :desc)
-        @categories = Category.where(id:4..12)
-      elsif
-        @category.id ==21 || @category.id == 22 || @category.id == 23
-        @items = Item.where(category_id: @category.id).order(created_at: :desc)
-        @categories = Category.where(id:21..23)
-      else
-        @category = Category.find(params[:category_id])
-        @items = Item.where(category_id: @category.id).order(created_at: :desc)
-      end
+
+        if
+          @category.id ==1 ||
+          @category.id == 4 || @category.id == 5 || @category.id == 6 ||
+          @category.id == 7 || @category.id == 8 || @category.id == 9 ||
+          @category.id == 10 || @category.id == 11 || @category.id == 12
+          @items = Item.where(category_id: @category.id).order(created_at: :desc)
+          @categories = Category.where(id:4..12)
+        elsif
+          @category.id == 2 ||
+          @category.id == 13 || @category.id == 14 || @category.id == 15 ||
+          @category.id == 16 || @category.id == 17 || @category.id == 18 ||
+          @category.id == 19 || @category.id == 20
+          @items = Item.where(category_id: @category.id).order(created_at: :desc)
+          @categories = Category.where(id:13..20)
+        elsif
+          @category.id == 3 ||
+          @category.id == 21 || @category.id == 22 || @category.id == 23
+          @items = Item.where(category_id: @category.id).order(created_at: :desc)
+          @categories = Category.where(id:21..23)
+        else
+          @categories = Category.find(params[:category_id])
+          @items = Item.where(category_id: @category.id).order(created_at: :desc)
+        end
     elsif params[:brand_name]
       @brand = Brand.find_by(brand_name: params[:brand_name])
       @items = Item.where(brand_name: @brand.brand_name).order(created_at: :desc)
