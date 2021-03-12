@@ -270,11 +270,15 @@
 }
 
 .top_main{
-	margin-top:50px;
+	height:87.8vh;
+	width:100%;
+	margin-top:40px;
+	padding-top:180px;
 	text-align:center;
+	vertical-align:center;
 	background-color:#00bfff;
+	background-size:cover;
 	color:#FFFFFF;
-	padding:14.27% 0;
 }
 
 .top_main_text{
@@ -290,10 +294,6 @@
 
 .top_main_text_detail{
 	color:#136FFF;
-}
-.main{
-	padding:60px;
-	float:right;
 }
 
 ////*差し込みフッター*////
