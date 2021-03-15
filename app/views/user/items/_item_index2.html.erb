@@ -1,0 +1,30 @@
+<div class="item_index_cusion">
+	<% if @items.count > 0 %>
+		<% @items.each do |item|%>
+			<div class="item_mainbox">
+				<%= link_to item_path(item.id),class: "item_index_image" do %>
+				<%= attachment_image_tag(item, :image, :fill, 250, 300)%>
+				<% end %>
+				<div class="item_user">
+					<div class="item_index_image">
+						<%= link_to user_path(item.user.id) do %>
+						<%= attachment_image_tag item.user, :profile_image, format: 'jpg', size: "40x40" , class: "img-circle item_user_image", fallback: "no_image.jpg"%>
+						<% end %>
+					</div>
+					<div class="item_index_nickname">
+						<p class="nickname_weight"><%= item.user.nickname.truncate(10)%></p>
+					</div>
+					<% if current_user != item.user %>
+						<div class="follow_box">
+							<div id="follows_buttons_<%= item.id %>">
+		   					<%= render partial: 'user/relationships/follow', locals: { item: item} %>
+							</div>
+						</div>
+					<% end %>
+				</div>
+			</div>
+		<% end %>
+	<% else %>
+		<h3>まだアイテムはありません</h1>
+	<% end %>
+</div>
