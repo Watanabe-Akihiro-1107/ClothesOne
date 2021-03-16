@@ -1,6 +1,6 @@
 
 <%= render "user/users/profile" %>
-<div class='item_show_container'>
+<div class='item_show_container '>
 	<div class='item_reaction_wrapper'>
 		<div class="item_reaction">
 			<%= attachment_image_tag(@item, :image, :fill, 520, 620, class: "item_image") %>
@@ -29,10 +29,24 @@
 			<% else %>
 				<p class ='brand_name'>SHOP / <%= @item.brand_name %></p>
 			<% end %>
-
 		<% end %>
 		<p class='category_name'>Category / <%= link_to items_path(category_id: @item.category_id) do %><span style='color:#00bfff;'><%= @item.category.category_name %><% end %></p>
 		<p class='item_create_time'><%= @item.created_at.strftime('%Y/%m/%d/%H:%M') %></p>
+		<% if user_signed_in? %>
+			<% if current_user.id == @item.user_id %>
+				<table class="table table-hover">
+					<tr>
+						<td align="center"><%= link_to edit_item_path ,class: "btn_detail" do %>
+							<button type="button" class="btn btn-light">EDIT</button><% end %>
+						</td>
+					</tr>
+					<tr>
+						<td align="center"><%= link_to item_path, method: :delete ,class: "btn_detail" do %><button type="button" class="btn btn-danger">DELETE</button><% end %>
+						</td>
+					</tr>
+				</table>
+			<% end %>
+		<% end %>
 	</div>
 
 
@@ -57,21 +71,7 @@
 		</div>
 	</div>
 
-	<% if user_signed_in? %>
-		<% if current_user.id == @item.user_id %>
-			<table class="table table-hover">
-			<tr>
-				<td align="center"><%= link_to edit_item_path ,class: "btn_detail" do %>
-					<button type="button" class="btn btn-light">EDIT</button><% end %>
-				</td>
-			</tr>
-			<tr>
-				<td align="center"><%= link_to item_path, method: :delete ,class: "btn_detail" do %><button type="button" class="btn btn-danger">DELETE</button><% end %>
-				</td>
-			</tr>
-			</table>
-		<% end %>
-	<% end %>
+
 </div>
 
 

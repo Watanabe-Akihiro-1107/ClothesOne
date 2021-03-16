@@ -1,4 +1,4 @@
-<div style="width:100%; height:170px; background-color:#FFFFFF; border-bottom:1px solid #c0c0c0;">
+<div style="width:100%; height:170px; background-color:#FFFFFF ">
 	<div class="user_detail" style="margin-top:60px;">
 		<%= attachment_image_tag @user, :profile_image, format: 'jpg', size: "80x80" , class: "img-circle user_show_image", fallback: "no_image.jpg"%>
 		<p class="user_nickname">NAME : <%= @user.nickname %></p>
@@ -18,19 +18,10 @@
 		<div class="user_itemlist_left"><%= link_to favorites_path(@user.id), class: "user_detail_btn"  do %><%= @user.favorites.count%><% end %>
 			<p>お気に入り</p>
 		</div>
-		<% if user_signed_in? %>
 			<div class="user_itemlist_right"><%= link_to @user.follower.count, user_follows_path(@user), class: "user_detail_btn"  %>
 				<p>フォロー</p>
 			</div>
 			<div class="user_itemlist_right"><%= link_to @user.followed.count, user_followers_path(@user), class: "user_detail_btn"  %>
 				<p>フォロワー</p>
-		<% else %>
-			<div class="user_itemlist_right"><span style="font-weight:bold;"><%= @user.follower.count%></p>
-				<p>フォロー</p>
-			</div>
-			<div class="user_itemlist_right"><span style="font-weight:bold;"><%= @user.followed.count%></p>
-			 	<p>フォロワー</p>
-			</div>
-		<% end %>
 	</div>
 </div>
