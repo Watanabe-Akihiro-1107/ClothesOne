@@ -12,16 +12,25 @@
 	</div>
 
 	<div class="user_itemlist">
-		<div class="user_itemlist_left"><%= link_to user_path(@user), class: "user_detail_btn" do %><%= @user.items.count %><% end %>
+		<%= link_to user_path(@user), class: "user_detail_btn" do %><div class="user_itemlist_left" id="profile_btn"><%= @user.items.count %>
 			<p>アイテム</p>
-		</div>
-		<div class="user_itemlist_left"><%= link_to favorites_path(@user.id), class: "user_detail_btn"  do %><%= @user.favorites.count%><% end %>
+		</div><% end %>
+		<%= link_to favorites_path(@user.id), class: "user_detail_btn"  do %><div class="user_itemlist_left" id="profile_btn"><%= @user.favorites.count%>
 			<p>お気に入り</p>
-		</div>
-			<div class="user_itemlist_right"><%= link_to @user.follower.count, user_follows_path(@user), class: "user_detail_btn"  %>
+		</div><% end %>
+			<%= link_to user_follows_path(@user), class: "user_detail_btn" do %>
+			<div class="user_itemlist_right" id="profile_btn"><%= @user.follower.count %>
 				<p>フォロー</p>
-			</div>
-			<div class="user_itemlist_right"><%= link_to @user.followed.count, user_followers_path(@user), class: "user_detail_btn"  %>
+			</div><% end %>
+			<%= link_to user_followers_path(@user), class: "user_detail_btn" do %>
+			<div class="user_itemlist_right" id="profile_btn"><%= @user.followed.count %>
 				<p>フォロワー</p>
+			</div><% end %>
 	</div>
 </div>
+
+<script>
+	$('#profile_btn').on('mousedown', function(){
+		$(this).addClass('selected_btn');
+	})
+</script>
